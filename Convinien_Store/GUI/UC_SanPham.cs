@@ -138,5 +138,10 @@ namespace Convenience_Store_Management.GUI
                 }
             }
         }
+
+        private void txtTenHH_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

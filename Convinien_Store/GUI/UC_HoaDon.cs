@@ -114,5 +114,10 @@ namespace Convenience_Store_Management.GUI
                 MessageBox.Show($"Đã xảy ra lỗi không mong muốn trong quá trình thêm hóa đơn: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

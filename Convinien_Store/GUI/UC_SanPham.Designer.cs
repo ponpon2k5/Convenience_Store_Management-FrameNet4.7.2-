@@ -1,4 +1,5 @@
-﻿using System;
+﻿// GUI/UC_SanPham.Designer.cs
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 namespace Convenience_Store_Management.GUI
@@ -58,7 +59,7 @@ namespace Convenience_Store_Management.GUI
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 2);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(854, 439);
@@ -77,11 +78,11 @@ namespace Convenience_Store_Management.GUI
             this.tabPage1.Controls.Add(this.txtSoLuong);
             this.tabPage1.Controls.Add(this.txtMaHHThem);
             this.tabPage1.Controls.Add(this.txtTenHH);
-            this.tabPage1.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(846, 410);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thêm hàng hóa";
@@ -91,7 +92,7 @@ namespace Convenience_Store_Management.GUI
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(132, 298);
+            this.label6.Location = new System.Drawing.Point(18, 196);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 68);
@@ -100,18 +101,18 @@ namespace Convenience_Store_Management.GUI
             // 
             // txtGiaNhap
             // 
-            this.txtGiaNhap.Location = new System.Drawing.Point(306, 305);
-            this.txtGiaNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtGiaNhap.Location = new System.Drawing.Point(188, 210);
+            this.txtGiaNhap.Margin = new System.Windows.Forms.Padding(2);
             this.txtGiaNhap.Name = "txtGiaNhap";
-            this.txtGiaNhap.Size = new System.Drawing.Size(326, 61);
+            this.txtGiaNhap.Size = new System.Drawing.Size(250, 26);
             this.txtGiaNhap.TabIndex = 9;
             // 
             // btnThemHH
             // 
-            this.btnThemHH.Location = new System.Drawing.Point(664, 313);
-            this.btnThemHH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThemHH.Location = new System.Drawing.Point(339, 254);
+            this.btnThemHH.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemHH.Name = "btnThemHH";
-            this.btnThemHH.Size = new System.Drawing.Size(99, 53);
+            this.btnThemHH.Size = new System.Drawing.Size(99, 60);
             this.btnThemHH.TabIndex = 8;
             this.btnThemHH.Text = "Thêm";
             this.btnThemHH.UseVisualStyleBackColor = true;
@@ -120,7 +121,7 @@ namespace Convenience_Store_Management.GUI
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(132, 225);
+            this.label4.Location = new System.Drawing.Point(18, 148);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 68);
@@ -129,17 +130,17 @@ namespace Convenience_Store_Management.GUI
             // 
             // txtGiaBan
             // 
-            this.txtGiaBan.Location = new System.Drawing.Point(306, 232);
-            this.txtGiaBan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtGiaBan.Location = new System.Drawing.Point(188, 162);
+            this.txtGiaBan.Margin = new System.Windows.Forms.Padding(2);
             this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(326, 61);
+            this.txtGiaBan.Size = new System.Drawing.Size(250, 26);
             this.txtGiaBan.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(132, 158);
+            this.label3.Location = new System.Drawing.Point(18, 104);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 68);
@@ -150,7 +151,7 @@ namespace Convenience_Store_Management.GUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(136, 87);
+            this.label2.Location = new System.Drawing.Point(18, 56);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(151, 68);
@@ -161,7 +162,7 @@ namespace Convenience_Store_Management.GUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(132, 19);
+            this.label1.Location = new System.Drawing.Point(14, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 68);
@@ -170,38 +171,39 @@ namespace Convenience_Store_Management.GUI
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(306, 158);
-            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSoLuong.Location = new System.Drawing.Point(188, 118);
+            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(2);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(326, 61);
+            this.txtSoLuong.Size = new System.Drawing.Size(250, 26);
             this.txtSoLuong.TabIndex = 2;
             // 
             // txtMaHHThem
             // 
-            this.txtMaHHThem.Location = new System.Drawing.Point(306, 87);
-            this.txtMaHHThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMaHHThem.Location = new System.Drawing.Point(188, 70);
+            this.txtMaHHThem.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaHHThem.Name = "txtMaHHThem";
-            this.txtMaHHThem.Size = new System.Drawing.Size(326, 61);
+            this.txtMaHHThem.Size = new System.Drawing.Size(250, 26);
             this.txtMaHHThem.TabIndex = 1;
             // 
             // txtTenHH
             // 
-            this.txtTenHH.Location = new System.Drawing.Point(306, 19);
-            this.txtTenHH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTenHH.Location = new System.Drawing.Point(188, 24);
+            this.txtTenHH.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenHH.Name = "txtTenHH";
-            this.txtTenHH.Size = new System.Drawing.Size(326, 61);
+            this.txtTenHH.Size = new System.Drawing.Size(250, 26);
             this.txtTenHH.TabIndex = 0;
+            this.txtTenHH.TextChanged += new System.EventHandler(this.txtTenHH_TextChanged);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnXoaHH);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.txtMaHHXoa);
-            this.tabPage2.Font = new System.Drawing.Font("Sans Serif Collection", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(846, 410);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Xóa hàng hóa";
@@ -209,10 +211,10 @@ namespace Convenience_Store_Management.GUI
             // 
             // btnXoaHH
             // 
-            this.btnXoaHH.Location = new System.Drawing.Point(534, 258);
-            this.btnXoaHH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXoaHH.Location = new System.Drawing.Point(306, 220);
+            this.btnXoaHH.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaHH.Name = "btnXoaHH";
-            this.btnXoaHH.Size = new System.Drawing.Size(98, 31);
+            this.btnXoaHH.Size = new System.Drawing.Size(98, 30);
             this.btnXoaHH.TabIndex = 9;
             this.btnXoaHH.Text = "Xóa";
             this.btnXoaHH.UseVisualStyleBackColor = true;
@@ -221,7 +223,7 @@ namespace Convenience_Store_Management.GUI
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(86, 152);
+            this.label5.Location = new System.Drawing.Point(86, 120);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 68);
@@ -230,10 +232,10 @@ namespace Convenience_Store_Management.GUI
             // 
             // txtMaHHXoa
             // 
-            this.txtMaHHXoa.Location = new System.Drawing.Point(306, 146);
-            this.txtMaHHXoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMaHHXoa.Location = new System.Drawing.Point(306, 120);
+            this.txtMaHHXoa.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaHHXoa.Name = "txtMaHHXoa";
-            this.txtMaHHXoa.Size = new System.Drawing.Size(326, 70);
+            this.txtMaHHXoa.Size = new System.Drawing.Size(250, 26);
             this.txtMaHHXoa.TabIndex = 4;
             // 
             // UC_SanPham
@@ -241,7 +243,7 @@ namespace Convenience_Store_Management.GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UC_SanPham";
             this.Size = new System.Drawing.Size(854, 443);
             this.tabControl1.ResumeLayout(false);
