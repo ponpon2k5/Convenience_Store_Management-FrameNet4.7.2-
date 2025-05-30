@@ -48,7 +48,7 @@ namespace Convenience_Store_Management.GUI
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(681, 399);
             dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick); // THÊM DÒNG NÀY
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick); // ADDED
             //
             // label3
             //
@@ -71,7 +71,7 @@ namespace Convenience_Store_Management.GUI
             btnThemGioHang.TabIndex = 18;
             btnThemGioHang.Text = "Thêm vào giỏ hàng";
             btnThemGioHang.UseVisualStyleBackColor = true;
-            btnThemGioHang.Click += btnThemGioHang_Click;
+            btnThemGioHang.Click += btnThemGioHang_Click; // ADDED
             //
             // tensanpham_label
             //
@@ -103,7 +103,7 @@ namespace Convenience_Store_Management.GUI
             Margin = new Padding(2, 3, 2, 3);
             Name = "UC_HangHoa_Khach";
             Size = new Size(686, 515);
-            Load += UC_HangHoa_Khach_Load;
+            Load += UC_HangHoa_Khach_Load; // ADDED
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

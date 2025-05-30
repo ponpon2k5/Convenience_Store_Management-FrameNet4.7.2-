@@ -32,9 +32,9 @@ namespace Convenience_Store_Management.GUI
             this.btnChangeCredentials = new System.Windows.Forms.Button();
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(40, 38);
@@ -43,9 +43,9 @@ namespace Convenience_Store_Management.GUI
             this.label1.Size = new System.Drawing.Size(167, 68);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập:";
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(40, 84);
@@ -54,36 +54,36 @@ namespace Convenience_Store_Management.GUI
             this.label2.Size = new System.Drawing.Size(144, 68);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mật khẩu cũ:";
-            // 
+            //
             // txtCurrentUsername
-            // 
+            //
             this.txtCurrentUsername.Location = new System.Drawing.Point(240, 38);
             this.txtCurrentUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCurrentUsername.Name = "txtCurrentUsername";
             this.txtCurrentUsername.ReadOnly = true;
             this.txtCurrentUsername.Size = new System.Drawing.Size(201, 22);
             this.txtCurrentUsername.TabIndex = 2;
-            // 
+            //
             // txtCurrentPassword
-            // 
+            //
             this.txtCurrentPassword.Location = new System.Drawing.Point(240, 84);
             this.txtCurrentPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
             this.txtCurrentPassword.PasswordChar = '*';
             this.txtCurrentPassword.Size = new System.Drawing.Size(201, 22);
             this.txtCurrentPassword.TabIndex = 3;
-            // 
+            //
             // txtNewUsername
-            // 
+            //
             this.txtNewUsername.Location = new System.Drawing.Point(240, 130);
             this.txtNewUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNewUsername.Name = "txtNewUsername";
             this.txtNewUsername.Size = new System.Drawing.Size(201, 22);
             this.txtNewUsername.TabIndex = 5;
             this.txtNewUsername.Visible = false;
-            // 
+            //
             // label4
-            // 
+            //
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(40, 130);
@@ -92,18 +92,18 @@ namespace Convenience_Store_Management.GUI
             this.label4.Size = new System.Drawing.Size(158, 68);
             this.label4.TabIndex = 6;
             this.label4.Text = "Mật khẩu mới:";
-            // 
+            //
             // txtNewPassword
-            // 
+            //
             this.txtNewPassword.Location = new System.Drawing.Point(240, 130);
             this.txtNewPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
             this.txtNewPassword.Size = new System.Drawing.Size(201, 22);
             this.txtNewPassword.TabIndex = 7;
-            // 
+            //
             // label5
-            // 
+            //
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(40, 175);
@@ -112,18 +112,18 @@ namespace Convenience_Store_Management.GUI
             this.label5.Size = new System.Drawing.Size(206, 68);
             this.label5.TabIndex = 8;
             this.label5.Text = "Xác nhận mật khẩu:";
-            // 
+            //
             // txtConfirmNewPassword
-            // 
+            //
             this.txtConfirmNewPassword.Location = new System.Drawing.Point(240, 175);
             this.txtConfirmNewPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtConfirmNewPassword.Name = "txtConfirmNewPassword";
             this.txtConfirmNewPassword.PasswordChar = '*';
             this.txtConfirmNewPassword.Size = new System.Drawing.Size(201, 22);
             this.txtConfirmNewPassword.TabIndex = 9;
-            // 
+            //
             // btnChangeCredentials
-            // 
+            //
             this.btnChangeCredentials.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeCredentials.Location = new System.Drawing.Point(240, 221);
             this.btnChangeCredentials.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -132,10 +132,10 @@ namespace Convenience_Store_Management.GUI
             this.btnChangeCredentials.TabIndex = 10;
             this.btnChangeCredentials.Text = "Đổi mật khẩu";
             this.btnChangeCredentials.UseVisualStyleBackColor = true;
-            this.btnChangeCredentials.Click += new System.EventHandler(this.btnChangeCredentials_Click);
-            // 
+            this.btnChangeCredentials.Click += new System.EventHandler(this.btnChangeCredentials_Click); // ADDED
+            //
             // chkShowPassword
-            // 
+            //
             this.chkShowPassword.AutoSize = true;
             this.chkShowPassword.Location = new System.Drawing.Point(448, 130);
             this.chkShowPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -144,10 +144,10 @@ namespace Convenience_Store_Management.GUI
             this.chkShowPassword.TabIndex = 11;
             this.chkShowPassword.Text = "Hiển thị mật khẩu";
             this.chkShowPassword.UseVisualStyleBackColor = true;
-            this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
-            // 
+            this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged); // ADDED
+            //
             // UC_ThanhVien_Khach
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.chkShowPassword);
@@ -164,7 +164,7 @@ namespace Convenience_Store_Management.GUI
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UC_ThanhVien_Khach";
             this.Size = new System.Drawing.Size(686, 412);
-            this.Load += new System.EventHandler(this.UC_ThanhVien_Khach_Load);
+            this.Load += new System.EventHandler(this.UC_ThanhVien_Khach_Load); // ADDED
             this.ResumeLayout(false);
             this.PerformLayout();
 

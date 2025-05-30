@@ -45,7 +45,7 @@ namespace Convenience_Store_Management
             // pnlKhachHang
             // 
             this.pnlKhachHang.Location = new System.Drawing.Point(157, 0);
-            this.pnlKhachHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlKhachHang.Margin = new System.Windows.Forms.Padding(2);
             this.pnlKhachHang.Name = "pnlKhachHang";
             this.pnlKhachHang.Size = new System.Drawing.Size(691, 417);
             this.pnlKhachHang.TabIndex = 5;
@@ -59,7 +59,7 @@ namespace Convenience_Store_Management
             this.panelNhanVien.Controls.Add(this.btnGioHang);
             this.panelNhanVien.Controls.Add(this.btnSanPham);
             this.panelNhanVien.Location = new System.Drawing.Point(-1, -1);
-            this.panelNhanVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelNhanVien.Margin = new System.Windows.Forms.Padding(2);
             this.panelNhanVien.Name = "panelNhanVien";
             this.panelNhanVien.Size = new System.Drawing.Size(156, 420);
             this.panelNhanVien.TabIndex = 4;
@@ -67,22 +67,24 @@ namespace Convenience_Store_Management
             // btnThanhVien
             // 
             this.btnThanhVien.Location = new System.Drawing.Point(21, 238);
-            this.btnThanhVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThanhVien.Margin = new System.Windows.Forms.Padding(2);
             this.btnThanhVien.Name = "btnThanhVien";
             this.btnThanhVien.Size = new System.Drawing.Size(114, 34);
             this.btnThanhVien.TabIndex = 6;
             this.btnThanhVien.Text = "Thành viên";
             this.btnThanhVien.UseVisualStyleBackColor = true;
+            this.btnThanhVien.Click += new System.EventHandler(this.btnThanhVien_Click);
             // 
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(21, 365);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(114, 34);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // pictureBox1
             // 
@@ -91,7 +93,7 @@ namespace Convenience_Store_Management
             this.pictureBox1.Image = global::Convinien_Store.Properties.Resources.convenience_store;
             this.pictureBox1.InitialImage = global::Convinien_Store.Properties.Resources.convenience_store;
             this.pictureBox1.Location = new System.Drawing.Point(21, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(114, 73);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -101,22 +103,24 @@ namespace Convenience_Store_Management
             // btnGioHang
             // 
             this.btnGioHang.Location = new System.Drawing.Point(21, 181);
-            this.btnGioHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGioHang.Margin = new System.Windows.Forms.Padding(2);
             this.btnGioHang.Name = "btnGioHang";
             this.btnGioHang.Size = new System.Drawing.Size(114, 34);
             this.btnGioHang.TabIndex = 1;
             this.btnGioHang.Text = "Giỏ hàng";
             this.btnGioHang.UseVisualStyleBackColor = true;
+            this.btnGioHang.Click += new System.EventHandler(this.btnGioHang_Click);
             // 
             // btnSanPham
             // 
             this.btnSanPham.Location = new System.Drawing.Point(21, 129);
-            this.btnSanPham.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSanPham.Margin = new System.Windows.Forms.Padding(2);
             this.btnSanPham.Name = "btnSanPham";
             this.btnSanPham.Size = new System.Drawing.Size(114, 34);
             this.btnSanPham.TabIndex = 0;
             this.btnSanPham.Text = "Sản phẩm";
             this.btnSanPham.UseVisualStyleBackColor = true;
+            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
             // 
             // FormKhachHang
             // 
@@ -125,7 +129,7 @@ namespace Convenience_Store_Management
             this.ClientSize = new System.Drawing.Size(846, 418);
             this.Controls.Add(this.pnlKhachHang);
             this.Controls.Add(this.panelNhanVien);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormKhachHang";
             this.Text = "FormKhachHang";
             this.panelNhanVien.ResumeLayout(false);

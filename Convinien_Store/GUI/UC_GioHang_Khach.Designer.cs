@@ -5,12 +5,12 @@ namespace Convenience_Store_Management.GUI
 {
     partial class UC_GioHang_Khach
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -25,8 +25,8 @@ namespace Convenience_Store_Management.GUI
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -42,23 +42,25 @@ namespace Convenience_Store_Management.GUI
             // 
             this.btnXoaGioHang.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaGioHang.Location = new System.Drawing.Point(14, 365);
-            this.btnXoaGioHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXoaGioHang.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaGioHang.Name = "btnXoaGioHang";
             this.btnXoaGioHang.Size = new System.Drawing.Size(158, 44);
             this.btnXoaGioHang.TabIndex = 20;
             this.btnXoaGioHang.Text = "Xóa khỏi giỏ hàng";
             this.btnXoaGioHang.UseVisualStyleBackColor = true;
+            this.btnXoaGioHang.Click += new System.EventHandler(this.btnXoaGioHang_Click);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(498, 365);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 44);
             this.button1.TabIndex = 21;
             this.button1.Text = "Thanh toán";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -75,7 +77,7 @@ namespace Convenience_Store_Management.GUI
             // 
             this.dgvGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGioHang.Location = new System.Drawing.Point(2, 84);
-            this.dgvGioHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvGioHang.Margin = new System.Windows.Forms.Padding(2);
             this.dgvGioHang.Name = "dgvGioHang";
             this.dgvGioHang.RowHeadersWidth = 51;
             this.dgvGioHang.Size = new System.Drawing.Size(682, 264);
@@ -89,7 +91,7 @@ namespace Convenience_Store_Management.GUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnXoaGioHang);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UC_GioHang_Khach";
             this.Size = new System.Drawing.Size(686, 451);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).EndInit();

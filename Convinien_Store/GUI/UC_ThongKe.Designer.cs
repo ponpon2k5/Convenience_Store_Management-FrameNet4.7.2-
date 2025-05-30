@@ -5,12 +5,12 @@ namespace Convenience_Store_Management.GUI
 {
     partial class UC_ThongKe
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -25,8 +25,8 @@ namespace Convenience_Store_Management.GUI
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -52,9 +52,9 @@ namespace Convenience_Store_Management.GUI
             ((System.ComponentModel.ISupportInitialize)dgvLoiNhuan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDoanhThu).BeginInit();
             SuspendLayout();
-            // 
+            //
             // tabControl1
-            // 
+            //
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
@@ -63,9 +63,9 @@ namespace Convenience_Store_Management.GUI
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(858, 541);
             tabControl1.TabIndex = 0;
-            // 
+            //
             // tabPage1
-            // 
+            //
             tabPage1.Controls.Add(dgvDoanhThu);
             tabPage1.Controls.Add(cbDoanhThu);
             tabPage1.Controls.Add(label3);
@@ -76,9 +76,9 @@ namespace Convenience_Store_Management.GUI
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Doanh thu";
             tabPage1.UseVisualStyleBackColor = true;
-            // 
+            //
             // tabPage2
-            // 
+            //
             tabPage2.Controls.Add(dgvLoiNhuan);
             tabPage2.Controls.Add(cbLoiNhuan);
             tabPage2.Controls.Add(label1);
@@ -89,9 +89,9 @@ namespace Convenience_Store_Management.GUI
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Lợi nhuận";
             tabPage2.UseVisualStyleBackColor = true;
-            // 
+            //
             // tabPage3
-            // 
+            //
             tabPage3.Controls.Add(dgvHHDaBan);
             tabPage3.Controls.Add(cbHangHoa);
             tabPage3.Controls.Add(label2);
@@ -102,9 +102,9 @@ namespace Convenience_Store_Management.GUI
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Các mặt hàng đã bán";
             tabPage3.UseVisualStyleBackColor = true;
-            // 
+            //
             // label2
-            // 
+            //
             label2.AutoSize = true;
             label2.Font = new Font("Sans Serif Collection", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(8, 120);
@@ -113,43 +113,45 @@ namespace Convenience_Store_Management.GUI
             label2.Size = new Size(122, 39);
             label2.TabIndex = 13;
             label2.Text = "Lọc theo:";
-            // 
+            //
             // cbHangHoa
-            // 
+            //
             cbHangHoa.FormattingEnabled = true;
             cbHangHoa.Items.AddRange(new object[] { "Tuần", "Tháng" });
             cbHangHoa.Location = new Point(138, 126);
             cbHangHoa.Name = "cbHangHoa";
             cbHangHoa.Size = new Size(121, 29);
             cbHangHoa.TabIndex = 14;
-            // 
+            this.cbHangHoa.SelectedIndexChanged += new System.EventHandler(this.cbHangHoa_SelectedIndexChanged); // ADDED
+            //
             // dgvHHDaBan
-            // 
+            //
             dgvHHDaBan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHHDaBan.Location = new Point(6, 260);
             dgvHHDaBan.Name = "dgvHHDaBan";
             dgvHHDaBan.Size = new Size(838, 241);
             dgvHHDaBan.TabIndex = 15;
-            // 
+            //
             // dgvLoiNhuan
-            // 
+            //
             dgvLoiNhuan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLoiNhuan.Location = new Point(6, 260);
             dgvLoiNhuan.Name = "dgvLoiNhuan";
             dgvLoiNhuan.Size = new Size(838, 241);
             dgvLoiNhuan.TabIndex = 18;
-            // 
+            //
             // cbLoiNhuan
-            // 
+            //
             cbLoiNhuan.FormattingEnabled = true;
             cbLoiNhuan.Items.AddRange(new object[] { "Tuần", "Tháng" });
             cbLoiNhuan.Location = new Point(138, 126);
             cbLoiNhuan.Name = "cbLoiNhuan";
             cbLoiNhuan.Size = new Size(121, 29);
             cbLoiNhuan.TabIndex = 17;
-            // 
+            this.cbLoiNhuan.SelectedIndexChanged += new System.EventHandler(this.cbLoiNhuan_SelectedIndexChanged); // ADDED
+            //
             // label1
-            // 
+            //
             label1.AutoSize = true;
             label1.Font = new Font("Sans Serif Collection", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(8, 120);
@@ -158,26 +160,27 @@ namespace Convenience_Store_Management.GUI
             label1.Size = new Size(122, 39);
             label1.TabIndex = 16;
             label1.Text = "Lọc theo:";
-            // 
+            //
             // dgvDoanhThu
-            // 
+            //
             dgvDoanhThu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDoanhThu.Location = new Point(6, 260);
             dgvDoanhThu.Name = "dgvDoanhThu";
             dgvDoanhThu.Size = new Size(838, 241);
             dgvDoanhThu.TabIndex = 18;
-            // 
+            //
             // cbDoanhThu
-            // 
+            //
             cbDoanhThu.FormattingEnabled = true;
             cbDoanhThu.Items.AddRange(new object[] { "Tuần", "Tháng" });
             cbDoanhThu.Location = new Point(138, 126);
             cbDoanhThu.Name = "cbDoanhThu";
             cbDoanhThu.Size = new Size(121, 29);
             cbDoanhThu.TabIndex = 17;
-            // 
+            this.cbDoanhThu.SelectedIndexChanged += new System.EventHandler(this.cbDoanhThu_SelectedIndexChanged); // ADDED
+            //
             // label3
-            // 
+            //
             label3.AutoSize = true;
             label3.Font = new Font("Sans Serif Collection", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(8, 120);
@@ -186,16 +189,16 @@ namespace Convenience_Store_Management.GUI
             label3.Size = new Size(122, 39);
             label3.TabIndex = 16;
             label3.Text = "Lọc theo:";
-            // 
+            //
             // UC_ThongKe
-            // 
+            //
 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tabControl1);
             Name = "UC_ThongKe";
             Size = new Size(858, 541);
-            this.Load += new System.EventHandler(this.UC_ThongKe_Load);
+            this.Load += new System.EventHandler(this.UC_ThongKe_Load); // ADDED
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();

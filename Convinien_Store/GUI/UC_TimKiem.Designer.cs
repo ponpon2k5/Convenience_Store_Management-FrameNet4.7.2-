@@ -5,12 +5,12 @@ namespace Convenience_Store_Management.GUI
 {
     partial class UC_TimKiem
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -25,8 +25,8 @@ namespace Convenience_Store_Management.GUI
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -55,9 +55,9 @@ namespace Convenience_Store_Management.GUI
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // tabControl1
-            // 
+            //
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
@@ -67,9 +67,9 @@ namespace Convenience_Store_Management.GUI
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(686, 412);
             this.tabControl1.TabIndex = 0;
-            // 
+            //
             // tabPage1
-            // 
+            //
             this.tabPage1.Controls.Add(this.btnTimHH);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.txtMaHH);
@@ -82,9 +82,9 @@ namespace Convenience_Store_Management.GUI
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Hàng hóa";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
+            //
             // btnTimHH
-            // 
+            //
             this.btnTimHH.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimHH.Location = new System.Drawing.Point(170, 140);
             this.btnTimHH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -93,9 +93,10 @@ namespace Convenience_Store_Management.GUI
             this.btnTimHH.TabIndex = 10;
             this.btnTimHH.Text = "Tìm kiếm";
             this.btnTimHH.UseVisualStyleBackColor = true;
-            // 
+            this.btnTimHH.Click += new System.EventHandler(this.btnTimHH_Click); // ADDED
+            //
             // label5
-            // 
+            //
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(25, 56);
@@ -104,18 +105,18 @@ namespace Convenience_Store_Management.GUI
             this.label5.Size = new System.Drawing.Size(151, 68);
             this.label5.TabIndex = 9;
             this.label5.Text = "Mã hàng hóa:";
-            // 
+            //
             // txtMaHH
-            // 
+            //
             this.txtMaHH.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaHH.Location = new System.Drawing.Point(170, 50);
             this.txtMaHH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaHH.Name = "txtMaHH";
             this.txtMaHH.Size = new System.Drawing.Size(274, 61);
             this.txtMaHH.TabIndex = 8;
-            // 
+            //
             // dataGridView1
-            // 
+            //
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(5, 198);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -123,9 +124,9 @@ namespace Convenience_Store_Management.GUI
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(670, 184);
             this.dataGridView1.TabIndex = 0;
-            // 
+            //
             // tabPage3
-            // 
+            //
             this.tabPage3.Controls.Add(this.btnTimHD);
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.txtMaHD);
@@ -138,9 +139,9 @@ namespace Convenience_Store_Management.GUI
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hóa đơn";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
+            //
             // btnTimHD
-            // 
+            //
             this.btnTimHD.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimHD.Location = new System.Drawing.Point(168, 138);
             this.btnTimHD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -149,9 +150,10 @@ namespace Convenience_Store_Management.GUI
             this.btnTimHD.TabIndex = 13;
             this.btnTimHD.Text = "Tìm kiếm";
             this.btnTimHD.UseVisualStyleBackColor = true;
-            // 
+            this.btnTimHD.Click += new System.EventHandler(this.btnTimHD_Click); // ADDED
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(23, 56);
@@ -160,18 +162,18 @@ namespace Convenience_Store_Management.GUI
             this.label1.Size = new System.Drawing.Size(135, 68);
             this.label1.TabIndex = 12;
             this.label1.Text = "Mã hóa đơn";
-            // 
+            //
             // txtMaHD
-            // 
+            //
             this.txtMaHD.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaHD.Location = new System.Drawing.Point(168, 50);
             this.txtMaHD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaHD.Name = "txtMaHD";
             this.txtMaHD.Size = new System.Drawing.Size(274, 61);
             this.txtMaHD.TabIndex = 11;
-            // 
+            //
             // dataGridView3
-            // 
+            //
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(5, 198);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -179,9 +181,9 @@ namespace Convenience_Store_Management.GUI
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.Size = new System.Drawing.Size(670, 184);
             this.dataGridView3.TabIndex = 1;
-            // 
+            //
             // tabPage4
-            // 
+            //
             this.tabPage4.Controls.Add(this.btnTimKH);
             this.tabPage4.Controls.Add(this.label2);
             this.tabPage4.Controls.Add(this.textBox1);
@@ -194,9 +196,9 @@ namespace Convenience_Store_Management.GUI
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Khách hàng";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
+            //
             // btnTimKH
-            // 
+            //
             this.btnTimKH.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimKH.Location = new System.Drawing.Point(202, 141);
             this.btnTimKH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -205,9 +207,10 @@ namespace Convenience_Store_Management.GUI
             this.btnTimKH.TabIndex = 13;
             this.btnTimKH.Text = "Tìm kiếm";
             this.btnTimKH.UseVisualStyleBackColor = true;
-            // 
+            this.btnTimKH.Click += new System.EventHandler(this.btnTimKH_Click); // ADDED
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(27, 59);
@@ -216,18 +219,18 @@ namespace Convenience_Store_Management.GUI
             this.label2.Size = new System.Drawing.Size(179, 68);
             this.label2.TabIndex = 12;
             this.label2.Text = "SDT khách hàng:";
-            // 
+            //
             // textBox1
-            // 
+            //
             this.textBox1.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(202, 53);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(274, 61);
             this.textBox1.TabIndex = 11;
-            // 
+            //
             // dataGridView4
-            // 
+            //
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Location = new System.Drawing.Point(5, 198);
             this.dataGridView4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -235,15 +238,16 @@ namespace Convenience_Store_Management.GUI
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.Size = new System.Drawing.Size(670, 186);
             this.dataGridView4.TabIndex = 1;
-            // 
+            //
             // UC_TimKiem
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UC_TimKiem";
             this.Size = new System.Drawing.Size(691, 417);
+            this.Load += new System.EventHandler(this.UC_TimKiem_Load); // ADDED
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
