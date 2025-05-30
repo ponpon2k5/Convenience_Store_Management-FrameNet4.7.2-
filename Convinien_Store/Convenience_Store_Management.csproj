@@ -190,11 +190,11 @@
     <Compile Include="BUS\BLKhachHang.cs" />
     <Compile Include="BUS\BLTaiKhoan.cs" />
     <Compile Include="DAL\ConnectDB.cs" />
-    <Compile Include="FormViewReports.cs">
+    <Compile Include="FormViewSalesInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViewReports.Designer.cs">
-      <DependentUpon>FormViewReports.cs</DependentUpon>
+    <Compile Include="FormViewSalesInvoice.Designer.cs">
+      <DependentUpon>FormViewSalesInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="FormKhachHang.cs">
       <SubType>Form</SubType>
@@ -286,8 +286,8 @@
     <EmbeddedResource Include="FormReg.resx">
       <DependentUpon>FormReg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormViewReports.resx">
-      <DependentUpon>FormViewReports.cs</DependentUpon>
+    <EmbeddedResource Include="FormViewSalesInvoice.resx">
+      <DependentUpon>FormViewSalesInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC_GioHang_Khach.resx">
       <DependentUpon>UC_GioHang_Khach.cs</DependentUpon>

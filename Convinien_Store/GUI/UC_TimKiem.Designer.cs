@@ -54,6 +54,7 @@ namespace Convenience_Store_Management.GUI
             this.txtGiaBanMoi = new System.Windows.Forms.TextBox();
             this.txtGiaNhapMoi = new System.Windows.Forms.TextBox();
             this.txtSoLuongMoi = new System.Windows.Forms.TextBox();
+            this.btnViewInvoiceDetails = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -178,6 +179,7 @@ namespace Convenience_Store_Management.GUI
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnViewInvoiceDetails);
             this.tabPage3.Controls.Add(this.btnTimHD);
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.txtMaHD);
@@ -194,10 +196,10 @@ namespace Convenience_Store_Management.GUI
             // btnTimHD
             // 
             this.btnTimHD.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimHD.Location = new System.Drawing.Point(168, 138);
+            this.btnTimHD.Location = new System.Drawing.Point(468, 55);
             this.btnTimHD.Margin = new System.Windows.Forms.Padding(2);
             this.btnTimHD.Name = "btnTimHD";
-            this.btnTimHD.Size = new System.Drawing.Size(94, 34);
+            this.btnTimHD.Size = new System.Drawing.Size(128, 56);
             this.btnTimHD.TabIndex = 13;
             this.btnTimHD.Text = "Tìm kiếm";
             this.btnTimHD.UseVisualStyleBackColor = true;
@@ -318,6 +320,18 @@ namespace Convenience_Store_Management.GUI
             this.txtSoLuongMoi.Size = new System.Drawing.Size(175, 22);
             this.txtSoLuongMoi.TabIndex = 20;
             // 
+            // btnViewInvoiceDetails
+            // 
+            this.btnViewInvoiceDetails.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewInvoiceDetails.Location = new System.Drawing.Point(14, 126);
+            this.btnViewInvoiceDetails.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewInvoiceDetails.Name = "btnViewInvoiceDetails";
+            this.btnViewInvoiceDetails.Size = new System.Drawing.Size(200, 56);
+            this.btnViewInvoiceDetails.TabIndex = 14;
+            this.btnViewInvoiceDetails.Text = "Xem Hóa Đơn";
+            this.btnViewInvoiceDetails.UseVisualStyleBackColor = true;
+            this.btnViewInvoiceDetails.Click += new System.EventHandler(this.btnViewInvoiceDetails_Click);
+            // 
             // UC_TimKiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -366,5 +380,6 @@ namespace Convenience_Store_Management.GUI
         private TextBox txtSoLuongMoi;
         private TextBox txtGiaNhapMoi;
         private TextBox txtGiaBanMoi;
+        private Button btnViewInvoiceDetails;
     }
 }

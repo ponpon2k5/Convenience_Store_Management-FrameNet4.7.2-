@@ -1,6 +1,6 @@
 ﻿namespace Convinien_Store
 {
-    partial class FormViewReports
+    partial class FormViewSalesInvoice
     {
         /// <summary>
         /// Required designer variable.

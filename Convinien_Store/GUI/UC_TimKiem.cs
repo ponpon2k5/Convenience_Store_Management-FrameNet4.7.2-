@@ -184,5 +184,19 @@ namespace Convenience_Store_Management.GUI
                 dataGridView4.DataSource = null;
             }
         }
+
+        private void btnViewInvoiceDetails_Click(object sender, EventArgs e)
+        {
+            if (dataGridView3.SelectedRows.Count > 0)
+            {
+                string maHoaDonBan = dataGridView3.SelectedRows[0].Cells["MaHoaDonBan"].Value.ToString();
+                FormViewSalesInvoice formView = new FormViewSalesInvoice(maHoaDonBan); // Truyền mã hóa đơn vào constructor
+                formView.ShowDialog(); // Hiển thị form báo cáo
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hóa đơn để xem chi tiết.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
