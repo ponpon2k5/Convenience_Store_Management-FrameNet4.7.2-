@@ -36,6 +36,16 @@ namespace QLBanHang_3Tang.BS_layer
             return db.MyExecuteNonQuery(sql, CommandType.Text, ref error);
         }
 
+        // NEW: Method to update HangHoa (selling price, import price, quantity)
+        public bool CapNhatHangHoa(string maSanPham, decimal giaBanMoi, decimal giaNhapMoi, int soLuongMoi, ref string error)
+        {
+            string giaBanStr = giaBanMoi.ToString(System.Globalization.CultureInfo.InvariantCulture);
+            string giaNhapStr = giaNhapMoi.ToString(System.Globalization.CultureInfo.InvariantCulture);
+
+            string sql = $"UPDATE HANG_HOA SET Gia = {giaBanStr}, GiaNhap = {giaNhapStr}, SoLuong = {soLuongMoi} WHERE MaSanPham = '{maSanPham.Replace("'", "''")}'";
+            return db.MyExecuteNonQuery(sql, CommandType.Text, ref error);
+        }
+
         // XoaHangHoa remains unchanged
         public bool XoaHangHoa(string maSanPham, ref string error)
         {

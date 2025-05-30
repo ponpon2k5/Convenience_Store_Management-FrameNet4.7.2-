@@ -111,7 +111,7 @@ namespace Convenience_Store_Management.GUI
             this.btnThemHH.Location = new System.Drawing.Point(533, 333);
             this.btnThemHH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnThemHH.Name = "btnThemHH";
-            this.btnThemHH.Size = new System.Drawing.Size(98, 28);
+            this.btnThemHH.Size = new System.Drawing.Size(99, 53);
             this.btnThemHH.TabIndex = 8;
             this.btnThemHH.Text = "Thêm";
             this.btnThemHH.UseVisualStyleBackColor = true;
