@@ -33,209 +33,207 @@ namespace Convenience_Store_Management
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            txtAccount = new TextBox();
-            txtPwd = new TextBox();
-            cbShowPwd = new CheckBox();
-            btnLogin = new Button();
-            btnExit = new Button();
-            panel1 = new Panel();
-            label3 = new Label();
-            NhanVienCb = new CheckBox();
-            KhachHangCb = new CheckBox();
-            sdt_text = new TextBox();
-            label = new Label();
-            manv_text = new TextBox();
-            manhanvien_label = new Label();
-            panel1.SuspendLayout();
-            SuspendLayout();
-            //
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAccount = new System.Windows.Forms.TextBox();
+            this.txtPwd = new System.Windows.Forms.TextBox();
+            this.cbShowPwd = new System.Windows.Forms.CheckBox();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.NhanVienCb = new System.Windows.Forms.CheckBox();
+            this.KhachHangCb = new System.Windows.Forms.CheckBox();
+            this.sdt_text = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.Label();
+            this.manv_text = new System.Windows.Forms.TextBox();
+            this.manhanvien_label = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
             // label1
-            //
-            label1.AutoSize = true;
-            label1.Font = new Font("Franklin Gothic Medium Cond", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(122, 136);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(153, 34);
-            label1.TabIndex = 0;
-            label1.Text = "Account name";
-            //
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(122, 109);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 34);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Account name";
+            // 
             // label2
-            //
-            label2.AutoSize = true;
-            label2.Font = new Font("Franklin Gothic Medium Cond", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(122, 199);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(109, 34);
-            label2.TabIndex = 1;
-            label2.Text = "Password";
-            //
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(122, 159);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 34);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Password";
+            // 
             // txtAccount
-            //
-            txtAccount.Location = new Point(266, 133);
-            txtAccount.Margin = new Padding(2, 3, 2, 3);
-            txtAccount.Name = "txtAccount";
-            txtAccount.Size = new Size(157, 27);
-            txtAccount.TabIndex = 2;
-            //
+            // 
+            this.txtAccount.Location = new System.Drawing.Point(279, 118);
+            this.txtAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAccount.Name = "txtAccount";
+            this.txtAccount.Size = new System.Drawing.Size(157, 22);
+            this.txtAccount.TabIndex = 2;
+            // 
             // txtPwd
-            //
-            txtPwd.Location = new Point(266, 199);
-            txtPwd.Margin = new Padding(2, 3, 2, 3);
-            txtPwd.Name = "txtPwd";
-            txtPwd.Size = new Size(157, 27);
-            txtPwd.TabIndex = 3;
-            //
+            // 
+            this.txtPwd.Location = new System.Drawing.Point(279, 161);
+            this.txtPwd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.Size = new System.Drawing.Size(157, 22);
+            this.txtPwd.TabIndex = 3;
+            // 
             // cbShowPwd
-            //
-            cbShowPwd.AutoSize = true;
-            cbShowPwd.Font = new Font("Franklin Gothic Medium Cond", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbShowPwd.Location = new Point(486, 201);
-            cbShowPwd.Margin = new Padding(2, 3, 2, 3);
-            cbShowPwd.Name = "cbShowPwd";
-            cbShowPwd.Size = new Size(189, 38);
-            cbShowPwd.TabIndex = 4;
-            cbShowPwd.Text = "Show password";
-            cbShowPwd.UseVisualStyleBackColor = true;
-            cbShowPwd.CheckedChanged += cbShowPwd_CheckedChanged;
-            //
+            // 
+            this.cbShowPwd.AutoSize = true;
+            this.cbShowPwd.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShowPwd.Location = new System.Drawing.Point(486, 161);
+            this.cbShowPwd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbShowPwd.Name = "cbShowPwd";
+            this.cbShowPwd.Size = new System.Drawing.Size(189, 38);
+            this.cbShowPwd.TabIndex = 4;
+            this.cbShowPwd.Text = "Show password";
+            this.cbShowPwd.UseVisualStyleBackColor = true;
+            // 
             // btnLogin
-            //
-            btnLogin.Font = new Font("Franklin Gothic Medium Cond", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Location = new Point(122, 400);
-            btnLogin.Margin = new Padding(2, 3, 2, 3);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(109, 39);
-            btnLogin.TabIndex = 5;
-            btnLogin.Text = "Sign up";
-            btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += btnLogin_Click;
-            //
+            // 
+            this.btnLogin.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(122, 320);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(126, 39);
+            this.btnLogin.TabIndex = 5;
+            this.btnLogin.Text = "Sign up";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            // 
             // btnExit
-            //
-            btnExit.Font = new Font("Franklin Gothic Medium Cond", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExit.Location = new Point(355, 400);
-            btnExit.Margin = new Padding(2, 3, 2, 3);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(68, 39);
-            btnExit.TabIndex = 6;
-            btnExit.Text = "Exit";
-            btnExit.UseVisualStyleBackColor = true;
-            btnExit.Click += btnExit_Click;
-            //
+            // 
+            this.btnExit.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(355, 320);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(77, 39);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
             // panel1
-            //
-            panel1.BackColor = Color.Red;
-            panel1.Controls.Add(label3);
-            panel1.Location = new Point(0, -1);
-            panel1.Margin = new Padding(2, 3, 2, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(747, 96);
-            panel1.TabIndex = 7;
-            //
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Red;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(0, -1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(747, 77);
+            this.panel1.TabIndex = 7;
+            // 
             // label3
-            //
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(22, 32);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(307, 39);
-            label3.TabIndex = 0;
-            label3.Text = "Convenience Store";
-            //
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(22, 26);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(307, 39);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Convenience Store";
+            // 
             // NhanVienCb
-            //
-            NhanVienCb.AutoSize = true;
-            NhanVienCb.Location = new Point(122, 257);
-            NhanVienCb.Name = "NhanVienCb";
-            NhanVienCb.Size = new Size(97, 24);
-            NhanVienCb.TabIndex = 10;
-            NhanVienCb.Text = "Nhân viên";
-            NhanVienCb.UseVisualStyleBackColor = true;
-            NhanVienCb.CheckedChanged += NhanVienCb_CheckedChanged;
-            //
+            // 
+            this.NhanVienCb.AutoSize = true;
+            this.NhanVienCb.Location = new System.Drawing.Point(186, 206);
+            this.NhanVienCb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NhanVienCb.Name = "NhanVienCb";
+            this.NhanVienCb.Size = new System.Drawing.Size(89, 20);
+            this.NhanVienCb.TabIndex = 10;
+            this.NhanVienCb.Text = "Nhân viên";
+            this.NhanVienCb.UseVisualStyleBackColor = true;
+            // 
             // KhachHangCb
-            //
-            KhachHangCb.AutoSize = true;
-            KhachHangCb.Location = new Point(355, 257);
-            KhachHangCb.Name = "KhachHangCb";
-            KhachHangCb.Size = new Size(111, 24);
-            KhachHangCb.TabIndex = 11;
-            KhachHangCb.Text = "Khách Hàng";
-            KhachHangCb.UseVisualStyleBackColor = true;
-            KhachHangCb.CheckedChanged += KhachHangCb_CheckedChanged;
-            //
+            // 
+            this.KhachHangCb.AutoSize = true;
+            this.KhachHangCb.Location = new System.Drawing.Point(393, 203);
+            this.KhachHangCb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.KhachHangCb.Name = "KhachHangCb";
+            this.KhachHangCb.Size = new System.Drawing.Size(102, 20);
+            this.KhachHangCb.TabIndex = 11;
+            this.KhachHangCb.Text = "Khách Hàng";
+            this.KhachHangCb.UseVisualStyleBackColor = true;
+            // 
             // sdt_text
-            //
-            sdt_text.Location = new Point(266, 297);
-            sdt_text.Margin = new Padding(2, 3, 2, 3);
-            sdt_text.Name = "sdt_text";
-            sdt_text.Size = new Size(157, 27);
-            sdt_text.TabIndex = 13;
-            //
+            // 
+            this.sdt_text.Location = new System.Drawing.Point(279, 238);
+            this.sdt_text.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sdt_text.Name = "sdt_text";
+            this.sdt_text.Size = new System.Drawing.Size(157, 22);
+            this.sdt_text.TabIndex = 13;
+            // 
             // label
-            //
-            label.AutoSize = true;
-            label.Font = new Font("Franklin Gothic Medium Cond", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label.Location = new Point(122, 297);
-            label.Margin = new Padding(2, 0, 2, 0);
-            label.Name = "label";
-            label.Size = new Size(54, 34);
-            label.TabIndex = 12;
-            label.Text = "SDT";
-            label.TextAlign = ContentAlignment.MiddleCenter;
-            //
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.Location = new System.Drawing.Point(122, 238);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(54, 34);
+            this.label.TabIndex = 12;
+            this.label.Text = "SDT";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // manv_text
-            //
-            manv_text.Location = new Point(266, 342);
-            manv_text.Margin = new Padding(2, 3, 2, 3);
-            manv_text.Name = "manv_text";
-            manv_text.Size = new Size(157, 27);
-            manv_text.TabIndex = 15;
-            //
+            // 
+            this.manv_text.Location = new System.Drawing.Point(279, 274);
+            this.manv_text.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.manv_text.Name = "manv_text";
+            this.manv_text.Size = new System.Drawing.Size(157, 22);
+            this.manv_text.TabIndex = 15;
+            // 
             // manhanvien_label
-            //
-            manhanvien_label.AutoSize = true;
-            manhanvien_label.Font = new Font("Franklin Gothic Medium Cond", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            manhanvien_label.Location = new Point(122, 342);
-            manhanvien_label.Margin = new Padding(2, 0, 2, 0);
-            manhanvien_label.Name = "manhanvien_label";
-            manhanvien_label.Size = new Size(78, 34);
-            manhanvien_label.TabIndex = 14;
-            manhanvien_label.Text = "Mã NV";
-            manhanvien_label.TextAlign = ContentAlignment.MiddleCenter;
-            //
+            // 
+            this.manhanvien_label.AutoSize = true;
+            this.manhanvien_label.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manhanvien_label.Location = new System.Drawing.Point(122, 274);
+            this.manhanvien_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.manhanvien_label.Name = "manhanvien_label";
+            this.manhanvien_label.Size = new System.Drawing.Size(78, 34);
+            this.manhanvien_label.TabIndex = 14;
+            this.manhanvien_label.Text = "Mã NV";
+            this.manhanvien_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormReg
-            //
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(682, 494);
-            Controls.Add(manv_text);
-            Controls.Add(manhanvien_label);
-            Controls.Add(sdt_text);
-            Controls.Add(label);
-            Controls.Add(KhachHangCb);
-            Controls.Add(NhanVienCb);
-            Controls.Add(panel1);
-            Controls.Add(btnExit);
-            Controls.Add(btnLogin);
-            Controls.Add(cbShowPwd);
-            Controls.Add(txtPwd);
-            Controls.Add(txtAccount);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Margin = new Padding(2, 3, 2, 3);
-            Name = "FormReg";
-            Text = "FormReg";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(682, 395);
+            this.Controls.Add(this.manv_text);
+            this.Controls.Add(this.manhanvien_label);
+            this.Controls.Add(this.sdt_text);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.KhachHangCb);
+            this.Controls.Add(this.NhanVienCb);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.cbShowPwd);
+            this.Controls.Add(this.txtPwd);
+            this.Controls.Add(this.txtAccount);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "FormReg";
+            this.Text = "FormReg";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

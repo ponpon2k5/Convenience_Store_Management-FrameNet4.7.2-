@@ -31,219 +31,231 @@ namespace Convenience_Store_Management.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            btnTimHH = new Button();
-            label5 = new Label();
-            txtMaHH = new TextBox();
-            dataGridView1 = new DataGridView();
-            tabPage3 = new TabPage();
-            btnTimHD = new Button();
-            label1 = new Label();
-            txtMaHD = new TextBox();
-            dataGridView3 = new DataGridView();
-            tabPage4 = new TabPage();
-            btnTimKH = new Button();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            dataGridView4 = new DataGridView();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
-            tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
-            SuspendLayout();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnTimHH = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtMaHH = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnTimHD = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMaHD = new System.Windows.Forms.TextBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnTimKH = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            this.SuspendLayout();
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage3);
-            tabControl1.Controls.Add(tabPage4);
-            tabControl1.Location = new Point(3, 3);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(858, 541);
-            tabControl1.TabIndex = 0;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Location = new System.Drawing.Point(2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(686, 412);
+            this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(btnTimHH);
-            tabPage1.Controls.Add(label5);
-            tabPage1.Controls.Add(txtMaHH);
-            tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Location = new Point(4, 30);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(850, 507);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Hàng hóa";
-            tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Controls.Add(this.btnTimHH);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.txtMaHH);
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(678, 383);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Hàng hóa";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnTimHH
             // 
-            btnTimHH.Font = new Font("Sans Serif Collection", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnTimHH.Location = new Point(212, 182);
-            btnTimHH.Name = "btnTimHH";
-            btnTimHH.Size = new Size(117, 45);
-            btnTimHH.TabIndex = 10;
-            btnTimHH.Text = "Tìm kiếm";
-            btnTimHH.UseVisualStyleBackColor = true;
-            btnTimHH.Click += btnTimHH_Click;
+            this.btnTimHH.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimHH.Location = new System.Drawing.Point(170, 140);
+            this.btnTimHH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTimHH.Name = "btnTimHH";
+            this.btnTimHH.Size = new System.Drawing.Size(114, 43);
+            this.btnTimHH.TabIndex = 10;
+            this.btnTimHH.Text = "Tìm kiếm";
+            this.btnTimHH.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Sans Serif Collection", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(31, 74);
-            label5.Margin = new Padding(5, 0, 5, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(171, 39);
-            label5.TabIndex = 9;
-            label5.Text = "Mã hàng hóa:";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(25, 56);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(151, 68);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Mã hàng hóa:";
             // 
             // txtMaHH
             // 
-            txtMaHH.Font = new Font("Sans Serif Collection", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtMaHH.Location = new Point(212, 66);
-            txtMaHH.Margin = new Padding(5, 7, 5, 7);
-            txtMaHH.Name = "txtMaHH";
-            txtMaHH.Size = new Size(342, 47);
-            txtMaHH.TabIndex = 8;
+            this.txtMaHH.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaHH.Location = new System.Drawing.Point(170, 50);
+            this.txtMaHH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMaHH.Name = "txtMaHH";
+            this.txtMaHH.Size = new System.Drawing.Size(274, 61);
+            this.txtMaHH.TabIndex = 8;
             // 
             // dataGridView1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 260);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(838, 241);
-            dataGridView1.TabIndex = 0;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(5, 198);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(670, 184);
+            this.dataGridView1.TabIndex = 0;
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(btnTimHD);
-            tabPage3.Controls.Add(label1);
-            tabPage3.Controls.Add(txtMaHD);
-            tabPage3.Controls.Add(dataGridView3);
-            tabPage3.Location = new Point(4, 30);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(850, 507);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "Hóa đơn";
-            tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Controls.Add(this.btnTimHD);
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.txtMaHD);
+            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Size = new System.Drawing.Size(678, 383);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Hóa đơn";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnTimHD
             // 
-            btnTimHD.Font = new Font("Sans Serif Collection", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnTimHD.Location = new Point(210, 181);
-            btnTimHD.Name = "btnTimHD";
-            btnTimHD.Size = new Size(117, 45);
-            btnTimHD.TabIndex = 13;
-            btnTimHD.Text = "Tìm kiếm";
-            btnTimHD.UseVisualStyleBackColor = true;
-            btnTimHD.Click += btnTimHD_Click;
+            this.btnTimHD.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimHD.Location = new System.Drawing.Point(168, 138);
+            this.btnTimHD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTimHD.Name = "btnTimHD";
+            this.btnTimHD.Size = new System.Drawing.Size(94, 34);
+            this.btnTimHD.TabIndex = 13;
+            this.btnTimHD.Text = "Tìm kiếm";
+            this.btnTimHD.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Sans Serif Collection", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(29, 73);
-            label1.Margin = new Padding(5, 0, 5, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(152, 39);
-            label1.TabIndex = 12;
-            label1.Text = "Mã hóa đơn";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 56);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 68);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Mã hóa đơn";
             // 
             // txtMaHD
             // 
-            txtMaHD.Font = new Font("Sans Serif Collection", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtMaHD.Location = new Point(210, 65);
-            txtMaHD.Margin = new Padding(5, 7, 5, 7);
-            txtMaHD.Name = "txtMaHD";
-            txtMaHD.Size = new Size(342, 47);
-            txtMaHD.TabIndex = 11;
+            this.txtMaHD.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaHD.Location = new System.Drawing.Point(168, 50);
+            this.txtMaHD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMaHD.Name = "txtMaHD";
+            this.txtMaHD.Size = new System.Drawing.Size(274, 61);
+            this.txtMaHD.TabIndex = 11;
             // 
             // dataGridView3
             // 
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(6, 260);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.Size = new Size(838, 241);
-            dataGridView3.TabIndex = 1;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(5, 198);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.Size = new System.Drawing.Size(670, 184);
+            this.dataGridView3.TabIndex = 1;
             // 
             // tabPage4
             // 
-            tabPage4.Controls.Add(btnTimKH);
-            tabPage4.Controls.Add(label2);
-            tabPage4.Controls.Add(textBox1);
-            tabPage4.Controls.Add(dataGridView4);
-            tabPage4.Location = new Point(4, 30);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(850, 507);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Khách hàng";
-            tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Controls.Add(this.btnTimKH);
+            this.tabPage4.Controls.Add(this.label2);
+            this.tabPage4.Controls.Add(this.textBox1);
+            this.tabPage4.Controls.Add(this.dataGridView4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Size = new System.Drawing.Size(678, 383);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Khách hàng";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // btnTimKH
             // 
-            btnTimKH.Font = new Font("Sans Serif Collection", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnTimKH.Location = new Point(252, 185);
-            btnTimKH.Name = "btnTimKH";
-            btnTimKH.Size = new Size(117, 45);
-            btnTimKH.TabIndex = 13;
-            btnTimKH.Text = "Tìm kiếm";
-            btnTimKH.UseVisualStyleBackColor = true;
-            btnTimKH.Click += btnTimKH_Click;
+            this.btnTimKH.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKH.Location = new System.Drawing.Point(202, 141);
+            this.btnTimKH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTimKH.Name = "btnTimKH";
+            this.btnTimKH.Size = new System.Drawing.Size(94, 34);
+            this.btnTimKH.TabIndex = 13;
+            this.btnTimKH.Text = "Tìm kiếm";
+            this.btnTimKH.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Sans Serif Collection", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(34, 78);
-            label2.Margin = new Padding(5, 0, 5, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(217, 39);
-            label2.TabIndex = 12;
-            label2.Text = "SDT khách hàng:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(27, 59);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(179, 68);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "SDT khách hàng:";
             // 
             // textBox1
             // 
-            textBox1.Font = new Font("Sans Serif Collection", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(252, 70);
-            textBox1.Margin = new Padding(5, 7, 5, 7);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(342, 47);
-            textBox1.TabIndex = 11;
+            this.textBox1.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(202, 53);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(274, 61);
+            this.textBox1.TabIndex = 11;
             // 
             // dataGridView4
             // 
-            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView4.Location = new Point(6, 260);
-            dataGridView4.Name = "dataGridView4";
-            dataGridView4.Size = new Size(838, 244);
-            dataGridView4.TabIndex = 1;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(5, 198);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 51;
+            this.dataGridView4.Size = new System.Drawing.Size(670, 186);
+            this.dataGridView4.TabIndex = 1;
             // 
             // UC_TimKiem
             // 
-            AutoScaleDimensions = new SizeF(10F, 21F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(tabControl1);
-            Name = "UC_TimKiem";
-            Size = new Size(864, 547);
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            tabPage3.ResumeLayout(false);
-            tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
-            tabPage4.ResumeLayout(false);
-            tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "UC_TimKiem";
+            this.Size = new System.Drawing.Size(691, 417);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

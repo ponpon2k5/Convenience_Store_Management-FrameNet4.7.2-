@@ -32,175 +32,178 @@ namespace Convenience_Store_Management
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            txtAccount = new TextBox();
-            txtPwd = new TextBox();
-            cbShowPwd = new CheckBox();
-            btnLogin = new Button();
-            btnExit = new Button();
-            panel1 = new Panel();
-            label3 = new Label();
-            NhanVienCb = new CheckBox();
-            KhachHangCb = new CheckBox();
-            button1 = new Button(); // This is the "Sign up" button
-            panel1.SuspendLayout();
-            SuspendLayout();
-            //
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAccount = new System.Windows.Forms.TextBox();
+            this.txtPwd = new System.Windows.Forms.TextBox();
+            this.cbShowPwd = new System.Windows.Forms.CheckBox();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.NhanVienCb = new System.Windows.Forms.CheckBox();
+            this.KhachHangCb = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
             // label1
-            //
-            label1.AutoSize = true;
-            label1.Font = new Font("Franklin Gothic Medium Cond", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(122, 136);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(153, 34);
-            label1.TabIndex = 0;
-            label1.Text = "Account name";
-            //
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(102, 106);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 34);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Account name";
+            // 
             // label2
-            //
-            label2.AutoSize = true;
-            label2.Font = new Font("Franklin Gothic Medium Cond", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(122, 199);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(109, 34);
-            label2.TabIndex = 1;
-            label2.Text = "Password";
-            //
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(102, 150);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 34);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Password";
+            // 
             // txtAccount
-            //
-            txtAccount.Location = new Point(266, 133);
-            txtAccount.Margin = new Padding(2, 3, 2, 3);
-            txtAccount.Name = "txtAccount";
-            txtAccount.Size = new Size(157, 27);
-            txtAccount.TabIndex = 2;
-            //
+            // 
+            this.txtAccount.Location = new System.Drawing.Point(266, 106);
+            this.txtAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAccount.Name = "txtAccount";
+            this.txtAccount.Size = new System.Drawing.Size(157, 22);
+            this.txtAccount.TabIndex = 2;
+            // 
             // txtPwd
-            //
-            txtPwd.Location = new Point(266, 199);
-            txtPwd.Margin = new Padding(2, 3, 2, 3);
-            txtPwd.Name = "txtPwd";
-            txtPwd.Size = new Size(157, 27);
-            txtPwd.TabIndex = 3;
-            //
+            // 
+            this.txtPwd.Location = new System.Drawing.Point(266, 159);
+            this.txtPwd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.Size = new System.Drawing.Size(157, 22);
+            this.txtPwd.TabIndex = 3;
+            // 
             // cbShowPwd
-            //
-            cbShowPwd.AutoSize = true;
-            cbShowPwd.Font = new Font("Franklin Gothic Medium Cond", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbShowPwd.Location = new Point(486, 201);
-            cbShowPwd.Margin = new Padding(2, 3, 2, 3);
-            cbShowPwd.Name = "cbShowPwd";
-            cbShowPwd.Size = new Size(189, 38);
-            cbShowPwd.TabIndex = 4;
-            cbShowPwd.Text = "Show password";
-            cbShowPwd.UseVisualStyleBackColor = true;
-            this.cbShowPwd.CheckedChanged += new System.EventHandler(this.cbShowPwd_CheckedChanged); // Event added
-            //
+            // 
+            this.cbShowPwd.AutoSize = true;
+            this.cbShowPwd.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShowPwd.Location = new System.Drawing.Point(465, 150);
+            this.cbShowPwd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbShowPwd.Name = "cbShowPwd";
+            this.cbShowPwd.Size = new System.Drawing.Size(189, 38);
+            this.cbShowPwd.TabIndex = 4;
+            this.cbShowPwd.Text = "Show password";
+            this.cbShowPwd.UseVisualStyleBackColor = true;
+            this.cbShowPwd.CheckedChanged += new System.EventHandler(this.cbShowPwd_CheckedChanged);
+            // 
             // btnLogin
-            //
-            btnLogin.Font = new Font("Franklin Gothic Medium Cond", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Location = new Point(108, 326);
-            btnLogin.Margin = new Padding(2, 3, 2, 3);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(70, 37);
-            btnLogin.TabIndex = 5;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click); // Event added
-            //
+            // 
+            this.btnLogin.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(108, 261);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(87, 47);
+            this.btnLogin.TabIndex = 5;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // btnExit
-            //
-            btnExit.Font = new Font("Franklin Gothic Medium Cond", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExit.Location = new Point(486, 324);
-            btnExit.Margin = new Padding(2, 3, 2, 3);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(68, 41);
-            btnExit.TabIndex = 6;
-            btnExit.Text = "Exit";
-            btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click); // Event added
-            //
+            // 
+            this.btnExit.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(486, 259);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(68, 49);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // panel1
-            //
-            panel1.BackColor = Color.Red;
-            panel1.Controls.Add(label3);
-            panel1.Location = new Point(0, -1);
-            panel1.Margin = new Padding(2, 3, 2, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(641, 96);
-            panel1.TabIndex = 7;
-            //
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Red;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(0, -1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(641, 77);
+            this.panel1.TabIndex = 7;
+            // 
             // label3
-            //
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(22, 32);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(307, 39);
-            label3.TabIndex = 0;
-            label3.Text = "Convenience Store";
-            //
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(22, 26);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(307, 39);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Convenience Store";
+            // 
             // NhanVienCb
-            //
-            NhanVienCb.AutoSize = true;
-            NhanVienCb.Location = new Point(122, 258);
-            NhanVienCb.Name = "NhanVienCb";
-            NhanVienCb.Size = new Size(97, 24);
-            NhanVienCb.TabIndex = 11;
-            NhanVienCb.Text = "Nhân viên";
-            NhanVienCb.UseVisualStyleBackColor = true;
-            this.NhanVienCb.CheckedChanged += new System.EventHandler(this.NhanVienCb_CheckedChanged); // Event added
-            //
+            // 
+            this.NhanVienCb.AutoSize = true;
+            this.NhanVienCb.Location = new System.Drawing.Point(157, 206);
+            this.NhanVienCb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NhanVienCb.Name = "NhanVienCb";
+            this.NhanVienCb.Size = new System.Drawing.Size(89, 20);
+            this.NhanVienCb.TabIndex = 11;
+            this.NhanVienCb.Text = "Nhân viên";
+            this.NhanVienCb.UseVisualStyleBackColor = true;
+            this.NhanVienCb.CheckedChanged += new System.EventHandler(this.NhanVienCb_CheckedChanged);
+            // 
             // KhachHangCb
-            //
-            KhachHangCb.AutoSize = true;
-            KhachHangCb.Location = new Point(354, 258);
-            KhachHangCb.Name = "KhachHangCb";
-            KhachHangCb.Size = new Size(111, 24);
-            KhachHangCb.TabIndex = 12;
-            KhachHangCb.Text = "Khách Hàng";
-            KhachHangCb.UseVisualStyleBackColor = true;
-            this.KhachHangCb.CheckedChanged += new System.EventHandler(this.KhachHangCb_CheckedChanged); // Event added
-            //
+            // 
+            this.KhachHangCb.AutoSize = true;
+            this.KhachHangCb.Location = new System.Drawing.Point(392, 206);
+            this.KhachHangCb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.KhachHangCb.Name = "KhachHangCb";
+            this.KhachHangCb.Size = new System.Drawing.Size(102, 20);
+            this.KhachHangCb.TabIndex = 12;
+            this.KhachHangCb.Text = "Khách Hàng";
+            this.KhachHangCb.UseVisualStyleBackColor = true;
+            this.KhachHangCb.CheckedChanged += new System.EventHandler(this.KhachHangCb_CheckedChanged);
+            // 
             // button1
-            //
-            button1.Font = new Font("Franklin Gothic Medium Cond", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(285, 326);
-            button1.Margin = new Padding(2, 3, 2, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(108, 37);
-            button1.TabIndex = 13;
-            button1.Text = "Sign up";
-            button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click); // Event added
-            //
+            // 
+            this.button1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(285, 261);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 47);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Sign up";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormLogin
-            //
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(651, 433);
-            Controls.Add(button1);
-            Controls.Add(KhachHangCb);
-            Controls.Add(NhanVienCb);
-            Controls.Add(panel1);
-            Controls.Add(btnExit);
-            Controls.Add(btnLogin);
-            Controls.Add(cbShowPwd);
-            Controls.Add(txtPwd);
-            Controls.Add(txtAccount);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Margin = new Padding(2, 3, 2, 3);
-            Name = "FormLogin";
-            Text = "FormLogin";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(651, 346);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.KhachHangCb);
+            this.Controls.Add(this.NhanVienCb);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.cbShowPwd);
+            this.Controls.Add(this.txtPwd);
+            this.Controls.Add(this.txtAccount);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "FormLogin";
+            this.Text = "FormLogin";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
