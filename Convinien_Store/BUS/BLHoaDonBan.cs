@@ -141,6 +141,26 @@ namespace QLBanHang_3Tang.BS_layer
             return giaBan;
         }
 
+        // NEW: Method to get details of a specific sales invoice
+        public DataSet LayChiTietHoaDon(string maHoaDonBan, ref string error)
+        {
+            string sql = $"SELECT HDB.MaHoaDonBan, HDB.NgayBan, HDB.MaNhanVien, HDB.SDTKhachHang, " +
+                         $"CTB.MaSanPham, HH.TenSP, CTB.SoLuong, CTB.GiaBan, CTB.ThanhTien " +
+                         $"FROM HOA_DON_BAN AS HDB " +
+                         $"JOIN CHI_TIET_BAN AS CTB ON HDB.MaHoaDonBan = CTB.MaHoaDonBan " +
+                         $"JOIN HANG_HOA AS HH ON CTB.MaSanPham = HH.MaSanPham " +
+                         $"WHERE HDB.MaHoaDonBan = '{maHoaDonBan.Replace("'", "''")}'"; // Filter by MaHoaDonBan
+            try
+            {
+                return db.ExecuteQueryDataSet(sql, CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return null;
+            }
+        }
+
         // Statistics methods (used by UC_ThongKe)
         public DataSet LayDoanhThu(string filterType, ref string error)
         {

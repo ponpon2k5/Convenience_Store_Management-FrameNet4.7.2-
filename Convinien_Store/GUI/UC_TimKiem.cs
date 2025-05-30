@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using QLBanHang_3Tang.BS_layer;
+using Convinien_Store; // Make sure this is present for FormViewSalesInvoice
 
 namespace Convenience_Store_Management.GUI
 {

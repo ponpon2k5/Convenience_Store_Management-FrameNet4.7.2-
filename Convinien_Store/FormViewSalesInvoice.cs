@@ -1,54 +1,50 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using Microsoft.Reporting.WinForms; // Required for ReportViewer
-using QLBanHang_3Tang.BS_layer; // Assuming QLBanHang_3Tang.BS_layer is where your BLHoaDonBan resides
+using Microsoft.Reporting.WinForms;
+using QLBanHang_3Tang.BS_layer;
 
 namespace Convinien_Store
 {
     public partial class FormViewSalesInvoice : Form
     {
-        private BLHoaDonBan blHoaDonBan = new BLHoaDonBan(); // Instantiate your Business Logic Layer for reports
+        private BLHoaDonBan blHoaDonBan = new BLHoaDonBan();
+        private string _maHoaDonBan; // Private field to store the invoice ID
 
-        public FormViewSalesInvoice()
+        // Modified constructor to accept maHoaDonBan
+        public FormViewSalesInvoice(string maHoaDonBan)
         {
             InitializeComponent();
+            _maHoaDonBan = maHoaDonBan; // Store the passed invoice ID
         }
+
+        // Removed the parameterless constructor.
 
         private void FormViewReports_Load(object sender, EventArgs e)
         {
             try
             {
-                // Clear any existing data sources
                 this.reportViewer1.LocalReport.DataSources.Clear();
 
-                // Fetch data using your Business Logic Layer
                 string error = "";
-                // You might want to pass parameters to LayDoanhThu if you have report filtering (e.g., "Tháng", "Tuần")
-                // For simplicity, let's assume we are fetching all sales data for now,
-                // or you can add a constructor to FormViewReports to accept a filter type.
-                // For this example, let's fetch 'monthly' data, or adjust as per your report's need.
-                // If the report should show ALL sales, you might need a new method in BLHoaDonBan or modify existing one.
-                DataSet dsReportData = blHoaDonBan.LayDoanhThu("Tháng", ref error); // Example: Fetch monthly revenue
+                // Use the stored invoice ID to fetch specific invoice details
+                DataSet dsReportData = blHoaDonBan.LayChiTietHoaDon(_maHoaDonBan, ref error);
 
                 if (dsReportData != null && dsReportData.Tables.Count > 0)
                 {
-                    // Create a ReportDataSource. "DataSet1" must match the name of the dataset in your .rdlc file.
-                    ReportDataSource rds = new ReportDataSource("DataSet1", dsReportData.Tables[0]);
+                    // "DataTable1" must match the name of the dataset in your .rdlc file.
+                    ReportDataSource rds = new ReportDataSource("DataTable1", dsReportData.Tables[0]);
                     this.reportViewer1.LocalReport.DataSources.Add(rds);
                 }
                 else
                 {
-                    MessageBox.Show($"Không có dữ liệu để hiển thị báo cáo: {error}", "Lỗi Tải Báo Cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return; // Exit if no data
+                    MessageBox.Show($"Không có dữ liệu để hiển thị báo cáo cho hóa đơn {_maHoaDonBan}: {error}", "Lỗi Tải Báo Cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
 
-                // Set the reportEmbeddedResource property.
-                // This path refers to the location of your .rdlc file within your project.
                 // Make sure the "Build Action" of your .rdlc file is set to "Embedded Resource".
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = "Convinien_Store.ReportDoanhThu.rdlc"; //
+                this.reportViewer1.LocalReport.ReportEmbeddedResource = "Convinien_Store.HoaDonBan.rdlc";
 
-                // Refresh the report viewer
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
