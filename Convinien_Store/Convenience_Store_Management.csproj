@@ -257,19 +257,19 @@
       <DependentUpon>UC_TimKiem.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\SessionManager.cs" />
-    <Compile Include="HoaDonBan.Designer.cs">
+    <Compile Include="StoreReportsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HoaDonBan.xsd</DependentUpon>
+      <DependentUpon>StoreReportsDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="SqlServerTypes\Report.cs">
+    <Compile Include="SqlServerTypes\FormViewSalesInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SqlServerTypes\Report.Designer.cs">
-      <DependentUpon>Report.cs</DependentUpon>
+    <Compile Include="SqlServerTypes\FormViewSalesInvoice.Designer.cs">
+      <DependentUpon>FormViewSalesInvoice.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormKhachHang.resx">
       <DependentUpon>FormKhachHang.cs</DependentUpon>
@@ -315,19 +315,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SqlServerTypes\Report.resx">
-      <DependentUpon>Report.cs</DependentUpon>
+    <EmbeddedResource Include="SqlServerTypes\FormViewSalesInvoice.resx">
+      <DependentUpon>FormViewSalesInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="HoaDonBan.xsc">
-      <DependentUpon>HoaDonBan.xsd</DependentUpon>
+    <None Include="StoreReportsDataSet.xsc">
+      <DependentUpon>StoreReportsDataSet.xsd</DependentUpon>
     </None>
-    <None Include="HoaDonBan.xsd">
+    <None Include="StoreReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HoaDonBan.Designer.cs</LastGenOutput>
+      <LastGenOutput>StoreReportsDataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="HoaDonBan.xss">
-      <DependentUpon>HoaDonBan.xsd</DependentUpon>
+    <None Include="StoreReportsDataSet.xss">
+      <DependentUpon>StoreReportsDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -1,6 +1,8 @@
-﻿namespace Convinien_Store.SqlServerTypes
+﻿
+
+namespace Convinien_Store
 {
-    partial class Report
+    partial class FormViewSalesInvoice
     {
         /// <summary>
         /// Required designer variable.
