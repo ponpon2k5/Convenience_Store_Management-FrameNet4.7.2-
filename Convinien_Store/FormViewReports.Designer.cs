@@ -1,8 +1,6 @@
-﻿
-
-namespace Convinien_Store
+﻿namespace Convinien_Store
 {
-    partial class FormViewSalesInvoice
+    partial class FormViewReports
     {
         /// <summary>
         /// Required designer variable.
@@ -36,21 +34,21 @@ namespace Convinien_Store
             // reportViewer1
             // 
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Convinien_Store.HoaDonBan.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(37, 91);
+            this.reportViewer1.Location = new System.Drawing.Point(30, 65);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(739, 347);
+            this.reportViewer1.Size = new System.Drawing.Size(739, 332);
             this.reportViewer1.TabIndex = 0;
             // 
-            // Report
+            // FormViewReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "Report";
-            this.Text = "Report";
-            this.Load += new System.EventHandler(this.Report_Load);
+            this.Name = "FormViewReports";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormViewReports_Load);
             this.ResumeLayout(false);
 
         }

@@ -190,6 +190,12 @@
     <Compile Include="BUS\BLKhachHang.cs" />
     <Compile Include="BUS\BLTaiKhoan.cs" />
     <Compile Include="DAL\ConnectDB.cs" />
+    <Compile Include="FormViewReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewReports.Designer.cs">
+      <DependentUpon>FormViewReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
       <DependentUpon>UC_TimKiem.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\SessionManager.cs" />
+    <Compile Include="StoreReportsDataSet.cs">
+      <DependentUpon>StoreReportsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="StoreReportsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -265,12 +274,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="SqlServerTypes\FormViewSalesInvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SqlServerTypes\FormViewSalesInvoice.Designer.cs">
-      <DependentUpon>FormViewSalesInvoice.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FormKhachHang.resx">
       <DependentUpon>FormKhachHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReg.resx">
       <DependentUpon>FormReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewReports.resx">
+      <DependentUpon>FormViewReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC_GioHang_Khach.resx">
       <DependentUpon>UC_GioHang_Khach.cs</DependentUpon>
@@ -304,7 +310,7 @@
     <EmbeddedResource Include="GUI\UC_TimKiem.resx">
       <DependentUpon>UC_TimKiem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HoaDonBan.rdlc" />
+    <EmbeddedResource Include="ReportSalesInvoice.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -315,9 +321,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SqlServerTypes\FormViewSalesInvoice.resx">
-      <DependentUpon>FormViewSalesInvoice.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="StoreReportsDataSet.xsc">
       <DependentUpon>StoreReportsDataSet.xsd</DependentUpon>
     </None>
