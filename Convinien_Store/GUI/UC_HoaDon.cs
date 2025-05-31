@@ -29,7 +29,8 @@ namespace Convenience_Store_Management.GUI
             dtpNgayBan.Value = DateTime.Now;
 
             // Optional: Tạo mã hóa đơn mới ngay khi load hoặc khi thêm sản phẩm đầu tiên
-            // txtMaHD.Text = "HD" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            // UNCOMMENT THE FOLLOWING LINE TO AUTOMATICALLY GENERATE INVOICE ID
+            txtMaHD.Text = "HD" + DateTime.Now.ToString("yyyyMMddHHmmss"); //
         }
 
         private void SetupInvoiceDetailsTable()
@@ -99,7 +100,7 @@ namespace Convenience_Store_Management.GUI
 
             if (productInfoDs == null || productInfoDs.Tables.Count == 0 || productInfoDs.Tables[0].Rows.Count == 0)
             {
-                MessageBox.Show($"Không tìm thấy sản phẩm với mã: '{maSanPham}'. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Không tìm thấy sản phẩm với mã: '{maSanPham}'. Vui lòng kiểm tra lại. Lỗi: {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -121,7 +122,7 @@ namespace Convenience_Store_Management.GUI
             DataRow existingRow = currentInvoiceDetailsTable.AsEnumerable()
                                                          .FirstOrDefault(row => row.Field<string>("MaSanPham") == maSanPham);
 
-            if (existingRow != null && existingRow.Field<string>("MaHoaDonBan") == maHoaDon) // Nếu cùng mã hóa đơn và sản phẩm đã có
+            if (existingRow != null)
             {
                 int currentSoLuong = existingRow.Field<int>("SoLuong");
                 // Kiểm tra lại số lượng tồn kho nếu thêm vào sản phẩm đã có
@@ -182,7 +183,7 @@ namespace Convenience_Store_Management.GUI
             try
             {
                 // Bước 1: Thêm hóa đơn bán chính
-                // Giả sử không có SDTKhachHang trong UC này, để là null
+                // SDTKhachHang is explicitly null for employee-generated invoices via this UC.
                 string sdtKhachHang = null;
                 success = blHoaDonBan.ThemHoaDonBan(maHoaDon, maNhanVien, sdtKhachHang, ngayBan, ref error);
                 if (!success)

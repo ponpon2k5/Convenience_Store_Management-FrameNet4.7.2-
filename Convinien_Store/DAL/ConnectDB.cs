@@ -5,7 +5,7 @@ using Microsoft.Data.SqlClient;
 
 namespace Convenience_Store_Management.DAL
 {
-    public class ConnectDB
+    public class ConnectDB  
     {
         public readonly string strCon = "Data Source= (local);Initial Catalog=QuanLyBanHang;Integrated Security=True;TrustServerCertificate=True";
 

@@ -163,13 +163,13 @@ namespace Convenience_Store_Management.GUI
             this.dgvInvoiceDetails.Margin = new System.Windows.Forms.Padding(2);
             this.dgvInvoiceDetails.Name = "dgvInvoiceDetails";
             this.dgvInvoiceDetails.RowHeadersWidth = 51;
-            this.dgvInvoiceDetails.Size = new System.Drawing.Size(551, 167);
+            this.dgvInvoiceDetails.Size = new System.Drawing.Size(551, 92);
             this.dgvInvoiceDetails.TabIndex = 19;
             // 
             // btnXuLyHD
             // 
             this.btnXuLyHD.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXuLyHD.Location = new System.Drawing.Point(342, 384);
+            this.btnXuLyHD.Location = new System.Drawing.Point(4, 296);
             this.btnXuLyHD.Margin = new System.Windows.Forms.Padding(2);
             this.btnXuLyHD.Name = "btnXuLyHD";
             this.btnXuLyHD.Size = new System.Drawing.Size(213, 50);
@@ -197,7 +197,7 @@ namespace Convenience_Store_Management.GUI
             this.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "UC_HoaDon";
-            this.Size = new System.Drawing.Size(633, 510);
+            this.Size = new System.Drawing.Size(590, 370);
             this.Load += new System.EventHandler(this.UC_HoaDon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetails)).EndInit();
             this.ResumeLayout(false);

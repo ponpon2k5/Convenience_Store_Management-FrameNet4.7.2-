@@ -17,7 +17,7 @@ namespace Convenience_Store_Management
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Ch?y ?ng d?ng v?i FormLogin
-            Application.Run(new FormNhanVien());
+            Application.Run(new FormLogin());
         }
     }
 }

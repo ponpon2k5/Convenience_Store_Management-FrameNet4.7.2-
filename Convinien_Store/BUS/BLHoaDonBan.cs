@@ -91,7 +91,7 @@ namespace QLBanHang_3Tang.BS_layer
         }
 
         // Method to get MaSanPham from TenSP (used by UC_HoaDon)
-        public string LayMaSanPhamTuTen(string tenSP)
+        public string LayMaSanPhamTuTen(string tenSP, ref string error) //
         {
             string sql = $"SELECT MaSanPham FROM HANG_HOA WHERE TenSP = N'{tenSP.Replace("'", "''")}'";
 
@@ -107,13 +107,14 @@ namespace QLBanHang_3Tang.BS_layer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi lấy mã sản phẩm: " + ex.Message);
+                error = "Lỗi khi lấy mã sản phẩm: " + ex.Message; // Pass error back
+                Console.WriteLine("Lỗi khi lấy mã sản phẩm: " + ex.Message); // Keep for console if needed
             }
             return maSanPham;
         }
 
         // Method to get GiaBan from MaSanPham (used by UC_HoaDon)
-        public decimal? LayGiaBan(string maSP)
+        public decimal? LayGiaBan(string maSP, ref string error) //
         {
             string sql = $"SELECT Gia FROM HANG_HOA WHERE MaSanPham = '{maSP.Replace("'", "''")}'";
 
@@ -129,7 +130,8 @@ namespace QLBanHang_3Tang.BS_layer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi lấy giá bán: " + ex.Message);
+                error = "Lỗi khi lấy giá bán: " + ex.Message; // Pass error back
+                Console.WriteLine("Lỗi khi lấy giá bán: " + ex.Message); // Keep for console if needed
             }
             return giaBan;
         }
