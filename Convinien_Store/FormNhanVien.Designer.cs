@@ -29,17 +29,17 @@ namespace Convenience_Store_Management
             this.panelNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // pnlNhanVien
-            //
+            // 
             this.pnlNhanVien.Location = new System.Drawing.Point(155, 2);
-            this.pnlNhanVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlNhanVien.Margin = new System.Windows.Forms.Padding(2);
             this.pnlNhanVien.Name = "pnlNhanVien";
             this.pnlNhanVien.Size = new System.Drawing.Size(691, 417);
             this.pnlNhanVien.TabIndex = 3;
-            //
+            // 
             // panelNhanVien
-            //
+            // 
             this.panelNhanVien.BackColor = System.Drawing.Color.Red;
             this.panelNhanVien.Controls.Add(this.btnExit);
             this.panelNhanVien.Controls.Add(this.pictureBox1);
@@ -48,87 +48,87 @@ namespace Convenience_Store_Management
             this.panelNhanVien.Controls.Add(this.btnHoaDon);
             this.panelNhanVien.Controls.Add(this.btnSanPham);
             this.panelNhanVien.Location = new System.Drawing.Point(-2, 1);
-            this.panelNhanVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelNhanVien.Margin = new System.Windows.Forms.Padding(2);
             this.panelNhanVien.Name = "panelNhanVien";
             this.panelNhanVien.Size = new System.Drawing.Size(156, 420);
             this.panelNhanVien.TabIndex = 2;
-            //
+            // 
             // btnExit
-            //
+            // 
             this.btnExit.Location = new System.Drawing.Point(21, 365);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(114, 34);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click); // ADDED
-            //
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // pictureBox1
-            //
+            // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::Convinien_Store.Properties.Resources.convenience_store;
             this.pictureBox1.Location = new System.Drawing.Point(21, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(114, 73);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            //
+            // 
             // btnThongKe
-            //
+            // 
             this.btnThongKe.Location = new System.Drawing.Point(21, 290);
-            this.btnThongKe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThongKe.Margin = new System.Windows.Forms.Padding(2);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(114, 34);
             this.btnThongKe.TabIndex = 3;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.UseVisualStyleBackColor = true;
-            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click); // ADDED
-            //
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
             // btnTimKiem
-            //
+            // 
             this.btnTimKiem.Location = new System.Drawing.Point(21, 234);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(114, 34);
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click); // ADDED
-            //
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
             // btnHoaDon
-            //
+            // 
             this.btnHoaDon.Location = new System.Drawing.Point(21, 181);
-            this.btnHoaDon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHoaDon.Margin = new System.Windows.Forms.Padding(2);
             this.btnHoaDon.Name = "btnHoaDon";
             this.btnHoaDon.Size = new System.Drawing.Size(114, 34);
             this.btnHoaDon.TabIndex = 1;
             this.btnHoaDon.Text = "Hóa đơn";
             this.btnHoaDon.UseVisualStyleBackColor = true;
-            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click); // ADDED
-            //
+            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
+            // 
             // btnSanPham
-            //
+            // 
             this.btnSanPham.Location = new System.Drawing.Point(21, 129);
-            this.btnSanPham.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSanPham.Margin = new System.Windows.Forms.Padding(2);
             this.btnSanPham.Name = "btnSanPham";
             this.btnSanPham.Size = new System.Drawing.Size(114, 34);
             this.btnSanPham.TabIndex = 0;
             this.btnSanPham.Text = "Sản phẩm";
             this.btnSanPham.UseVisualStyleBackColor = true;
-            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click); // ADDED
-            //
+            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
+            // 
             // FormNhanVien
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 421);
             this.Controls.Add(this.pnlNhanVien);
             this.Controls.Add(this.panelNhanVien);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormNhanVien";
             this.Text = "Form Nhân Viên";
             this.panelNhanVien.ResumeLayout(false);

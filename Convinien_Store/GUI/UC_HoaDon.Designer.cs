@@ -1,5 +1,4 @@
-﻿// GUI/UC_HoaDon.Designer.cs
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 namespace Convenience_Store_Management.GUI
@@ -34,8 +33,6 @@ namespace Convenience_Store_Management.GUI
         {
             this.label5 = new System.Windows.Forms.Label();
             this.txtMaHD = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTenSP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,14 +42,16 @@ namespace Convenience_Store_Management.GUI
             this.btnThemHD = new System.Windows.Forms.Button();
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.dgvInvoiceDetails = new System.Windows.Forms.DataGridView();
+            this.btnXuLyHD = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(40, 20);
-            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label5.Location = new System.Drawing.Point(3, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 68);
             this.label5.TabIndex = 7;
@@ -60,122 +59,130 @@ namespace Convenience_Store_Management.GUI
             // 
             // txtMaHD
             // 
-            this.txtMaHD.Location = new System.Drawing.Point(220, 37);
-            this.txtMaHD.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.txtMaHD.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaHD.Location = new System.Drawing.Point(149, 10);
+            this.txtMaHD.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.Size = new System.Drawing.Size(139, 22);
+            this.txtMaHD.Size = new System.Drawing.Size(146, 51);
             this.txtMaHD.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 59);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 68);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Tên sản phẩm:";
-            // 
-            // txtTenSP
-            // 
-            this.txtTenSP.Location = new System.Drawing.Point(220, 76);
-            this.txtTenSP.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.txtTenSP.Name = "txtTenSP";
-            this.txtTenSP.Size = new System.Drawing.Size(139, 22);
-            this.txtTenSP.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 148);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Font = new System.Drawing.Font("Sans Serif Collection", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(325, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 68);
-            this.label2.TabIndex = 1;
+            this.label2.Size = new System.Drawing.Size(86, 51);
+            this.label2.TabIndex = 11;
             this.label2.Text = "Số lượng:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(220, 165);
-            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.txtSoLuong.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoLuong.Location = new System.Drawing.Point(437, 71);
+            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(139, 22);
+            this.txtSoLuong.Size = new System.Drawing.Size(118, 51);
             this.txtSoLuong.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(44, 185);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Font = new System.Drawing.Font("Sans Serif Collection", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 68);
+            this.label3.Size = new System.Drawing.Size(116, 51);
             this.label3.TabIndex = 13;
             this.label3.Text = "Mã nhân viên:";
             // 
             // txtMaNV
             // 
-            this.txtMaNV.Location = new System.Drawing.Point(220, 213);
-            this.txtMaNV.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.txtMaNV.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaNV.Location = new System.Drawing.Point(149, 75);
+            this.txtMaNV.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(139, 22);
+            this.txtMaNV.Size = new System.Drawing.Size(146, 51);
             this.txtMaNV.TabIndex = 12;
             // 
             // dtpNgayBan
             // 
             this.dtpNgayBan.CalendarFont = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayBan.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayBan.Location = new System.Drawing.Point(220, 245);
+            this.dtpNgayBan.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayBan.Location = new System.Drawing.Point(114, 139);
+            this.dtpNgayBan.Margin = new System.Windows.Forms.Padding(2);
             this.dtpNgayBan.Name = "dtpNgayBan";
-            this.dtpNgayBan.Size = new System.Drawing.Size(285, 51);
+            this.dtpNgayBan.Size = new System.Drawing.Size(297, 44);
             this.dtpNgayBan.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(60, 238);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Font = new System.Drawing.Font("Sans Serif Collection", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 135);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 68);
+            this.label4.Size = new System.Drawing.Size(90, 51);
             this.label4.TabIndex = 15;
             this.label4.Text = "Ngày bán:";
             // 
             // btnThemHD
             // 
-            this.btnThemHD.Location = new System.Drawing.Point(220, 302);
+            this.btnThemHD.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemHD.Location = new System.Drawing.Point(448, 129);
+            this.btnThemHD.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemHD.Name = "btnThemHD";
-            this.btnThemHD.Size = new System.Drawing.Size(158, 30);
+            this.btnThemHD.Size = new System.Drawing.Size(107, 48);
             this.btnThemHD.TabIndex = 16;
             this.btnThemHD.Text = "Thêm";
             this.btnThemHD.UseVisualStyleBackColor = true;
+            this.btnThemHD.Click += new System.EventHandler(this.btnThemHD_Click);
             // 
             // txtMaSP
             // 
-            this.txtMaSP.Location = new System.Drawing.Point(220, 112);
-            this.txtMaSP.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.txtMaSP.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaSP.Location = new System.Drawing.Point(437, 10);
+            this.txtMaSP.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtMaSP.Name = "txtMaSP";
-            this.txtMaSP.Size = new System.Drawing.Size(139, 22);
+            this.txtMaSP.Size = new System.Drawing.Size(118, 51);
             this.txtMaSP.TabIndex = 17;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(44, 95);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Font = new System.Drawing.Font("Sans Serif Collection", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(315, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(156, 68);
+            this.label6.Size = new System.Drawing.Size(116, 51);
             this.label6.TabIndex = 18;
             this.label6.Text = "Mã sản phẩm:";
             // 
+            // dgvInvoiceDetails
+            // 
+            this.dgvInvoiceDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInvoiceDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInvoiceDetails.Location = new System.Drawing.Point(4, 200);
+            this.dgvInvoiceDetails.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvInvoiceDetails.Name = "dgvInvoiceDetails";
+            this.dgvInvoiceDetails.RowHeadersWidth = 51;
+            this.dgvInvoiceDetails.Size = new System.Drawing.Size(551, 167);
+            this.dgvInvoiceDetails.TabIndex = 19;
+            // 
+            // btnXuLyHD
+            // 
+            this.btnXuLyHD.Font = new System.Drawing.Font("Sans Serif Collection", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuLyHD.Location = new System.Drawing.Point(342, 384);
+            this.btnXuLyHD.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXuLyHD.Name = "btnXuLyHD";
+            this.btnXuLyHD.Size = new System.Drawing.Size(213, 50);
+            this.btnXuLyHD.TabIndex = 20;
+            this.btnXuLyHD.Text = "Hoàn tất hóa đơn";
+            this.btnXuLyHD.UseVisualStyleBackColor = true;
+            this.btnXuLyHD.Click += new System.EventHandler(this.btnXuLyHD_Click);
+            // 
             // UC_HoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.btnXuLyHD);
+            this.Controls.Add(this.dgvInvoiceDetails);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtMaSP);
             this.Controls.Add(this.btnThemHD);
@@ -185,14 +192,14 @@ namespace Convenience_Store_Management.GUI
             this.Controls.Add(this.txtMaNV);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSoLuong);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTenSP);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMaHD);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "UC_HoaDon";
-            this.Size = new System.Drawing.Size(697, 520);
+            this.Size = new System.Drawing.Size(633, 510);
+            this.Load += new System.EventHandler(this.UC_HoaDon_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,8 +209,6 @@ namespace Convenience_Store_Management.GUI
 
         private Label label5;
         private TextBox txtMaHD;
-        private Label label1;
-        private TextBox txtTenSP;
         private Label label2;
         private TextBox txtSoLuong;
         private Label label3;
@@ -213,5 +218,7 @@ namespace Convenience_Store_Management.GUI
         private Button btnThemHD;
         private TextBox txtMaSP;
         private Label label6;
+        private DataGridView dgvInvoiceDetails;
+        private Button btnXuLyHD;
     }
 }
