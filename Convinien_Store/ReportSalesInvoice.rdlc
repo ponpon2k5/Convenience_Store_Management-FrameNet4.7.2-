@@ -32,7 +32,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>MaHoaDonBan</rd:DefaultName>
-                          <Top>0.59722in</Top>
+                          <Top>0.29167in</Top>
+                          <Left>1.11667in</Left>
                           <Height>0.25in</Height>
                           <Width>1in</Width>
                           <Style>
@@ -60,8 +61,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>NgayBan</rd:DefaultName>
-                          <Top>0.59722in</Top>
-                          <Left>1.36694in</Left>
+                          <Top>0.29166in</Top>
+                          <Left>3.77527in</Left>
                           <Height>0.25in</Height>
                           <Width>1in</Width>
                           <ZIndex>1</ZIndex>
@@ -91,7 +92,7 @@
                           </Paragraphs>
                           <rd:DefaultName>MaNhanVien</rd:DefaultName>
                           <Top>0.61111in</Top>
-                          <Left>2.92222in</Left>
+                          <Left>1.11667in</Left>
                           <Height>0.25in</Height>
                           <Width>1in</Width>
                           <ZIndex>2</ZIndex>
@@ -120,8 +121,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SDTKhachHang</rd:DefaultName>
-                          <Top>0.56944in</Top>
-                          <Left>4.38in</Left>
+                          <Top>0.61111in</Top>
+                          <Left>3.77527in</Left>
                           <Height>0.25in</Height>
                           <Width>1.45in</Width>
                           <ZIndex>3</ZIndex>
@@ -427,8 +428,9 @@
                           </TablixRowHierarchy>
                           <DataSetName>DataTable1</DataSetName>
                           <Top>0.96667in</Top>
-                          <Height>1.38333in</Height>
-                          <Width>5.83in</Width>
+                          <Left>0in</Left>
+                          <Height>1.38334in</Height>
+                          <Width>5.83001in</Width>
                           <ZIndex>4</ZIndex>
                           <Style>
                             <Border>
@@ -496,6 +498,143 @@
                           <Height>0.25in</Height>
                           <Width>1.475in</Width>
                           <ZIndex>6</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Mã Hóa Đơn</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.29167in</Top>
+                          <Left>0in</Left>
+                          <Height>0.25in</Height>
+                          <Width>1in</Width>
+                          <ZIndex>7</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Ngày bán:</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.29167in</Top>
+                          <Left>2.61972in</Left>
+                          <Height>0.25in</Height>
+                          <Width>1in</Width>
+                          <ZIndex>8</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Mã Nhân viên</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.61111in</Top>
+                          <Height>0.25in</Height>
+                          <Width>1in</Width>
+                          <ZIndex>9</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>SDT KH:</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.61111in</Top>
+                          <Left>2.61972in</Left>
+                          <Height>0.25in</Height>
+                          <Width>1in</Width>
+                          <ZIndex>10</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>

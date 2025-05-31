@@ -217,17 +217,21 @@ namespace QLBanHang_3Tang.BS_layer
             {
                 DateTime startOfWeek = now.Date.AddDays(-(int)now.DayOfWeek + (int)DayOfWeek.Monday);
                 DateTime endOfWeek = startOfWeek.AddDays(7);
-                dateFilter = $"WHERE NgayBan >= '{startOfWeek.ToString("yyyy-MM-dd")}' AND NgayBan < '{endOfWeek.ToString("yyyy-MM-dd")}'";
+                dateFilter = $"WHERE HDB.NgayBan >= '{startOfWeek.ToString("yyyy-MM-dd")}' AND HDB.NgayBan < '{endOfWeek.ToString("yyyy-MM-dd")}'";
             }
             else if (filterType == "Tháng")
             {
                 DateTime startOfMonth = new DateTime(now.Year, now.Month, 1);
                 DateTime endOfMonth = startOfMonth.AddMonths(1);
-                dateFilter = $"WHERE NgayBan >= '{startOfMonth.ToString("yyyy-MM-dd")}' AND NgayBan < '{endOfMonth.ToString("yyyy-MM-dd")}'";
+                dateFilter = $"WHERE HDB.NgayBan >= '{startOfMonth.ToString("yyyy-MM-dd")}' AND HDB.NgayBan < '{endOfMonth.ToString("yyyy-MM-dd")}'";
             }
 
-            string sql = $"SELECT HDB.MaHoaDonBan, HDB.NgayBan, SUM(CTB.ThanhTien) AS TongDoanhThu " +
-                         $"FROM HOA_DON_BAN AS HDB JOIN CHI_TIET_BAN AS CTB ON HDB.MaHoaDonBan = CTB.MaHoaDonBan " +
+            // Correct SQL to calculate profit: (Selling Price - Import Price) * Quantity
+            string sql = $"SELECT HDB.MaHoaDonBan, HDB.NgayBan, " +
+                         $"SUM(CTB.SoLuong * (CTB.GiaBan - HH.GiaNhap)) AS TongLoiNhuan " + // Calculate profit per item and sum
+                         $"FROM HOA_DON_BAN AS HDB " +
+                         $"JOIN CHI_TIET_BAN AS CTB ON HDB.MaHoaDonBan = CTB.MaHoaDonBan " +
+                         $"JOIN HANG_HOA AS HH ON CTB.MaSanPham = HH.MaSanPham " + // Join with HANG_HOA to get GiaNhap
                          $"{dateFilter} GROUP BY HDB.MaHoaDonBan, HDB.NgayBan ORDER BY HDB.NgayBan DESC";
             try
             {

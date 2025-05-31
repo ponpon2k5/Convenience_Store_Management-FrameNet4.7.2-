@@ -49,9 +49,11 @@ namespace Convenience_Store_Management.GUI
             this.btnXoaHH = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtMaHHXoa = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -196,6 +198,7 @@ namespace Convenience_Store_Management.GUI
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Controls.Add(this.btnXoaHH);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.txtMaHHXoa);
@@ -211,7 +214,7 @@ namespace Convenience_Store_Management.GUI
             // 
             // btnXoaHH
             // 
-            this.btnXoaHH.Location = new System.Drawing.Point(306, 220);
+            this.btnXoaHH.Location = new System.Drawing.Point(459, 31);
             this.btnXoaHH.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaHH.Name = "btnXoaHH";
             this.btnXoaHH.Size = new System.Drawing.Size(98, 30);
@@ -223,7 +226,7 @@ namespace Convenience_Store_Management.GUI
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(86, 120);
+            this.label5.Location = new System.Drawing.Point(34, 19);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 68);
@@ -232,11 +235,21 @@ namespace Convenience_Store_Management.GUI
             // 
             // txtMaHHXoa
             // 
-            this.txtMaHHXoa.Location = new System.Drawing.Point(306, 120);
+            this.txtMaHHXoa.Location = new System.Drawing.Point(189, 33);
             this.txtMaHHXoa.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaHHXoa.Name = "txtMaHHXoa";
             this.txtMaHHXoa.Size = new System.Drawing.Size(250, 26);
             this.txtMaHHXoa.TabIndex = 4;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(46, 90);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(511, 292);
+            this.dataGridView1.TabIndex = 10;
             // 
             // UC_SanPham
             // 
@@ -251,6 +264,7 @@ namespace Convenience_Store_Management.GUI
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -274,5 +288,6 @@ namespace Convenience_Store_Management.GUI
         private TextBox txtMaHHXoa;
         private Label label6;
         private TextBox txtGiaNhap;
+        private DataGridView dataGridView1;
     }
 }

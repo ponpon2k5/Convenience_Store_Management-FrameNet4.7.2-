@@ -43,7 +43,16 @@ namespace Convenience_Store_Management.GUI
                 // Format total revenue column
                 if (dgvDoanhThu.Columns.Contains("TongDoanhThu"))
                 {
+                    dgvDoanhThu.Columns["TongDoanhThu"].HeaderText = "Tổng Doanh Thu"; // Added HeaderText
                     dgvDoanhThu.Columns["TongDoanhThu"].DefaultCellStyle.Format = "N0";
+                }
+                if (dgvDoanhThu.Columns.Contains("MaHoaDonBan"))
+                {
+                    dgvDoanhThu.Columns["MaHoaDonBan"].HeaderText = "Mã Hóa Đơn Bán"; // Added HeaderText
+                }
+                if (dgvDoanhThu.Columns.Contains("NgayBan"))
+                {
+                    dgvDoanhThu.Columns["NgayBan"].HeaderText = "Ngày Bán"; // Added HeaderText
                 }
             }
             else
@@ -57,14 +66,24 @@ namespace Convenience_Store_Management.GUI
         {
             string filter = cbLoiNhuan.SelectedItem?.ToString();
             string error = "";
-            DataSet ds = blHoaDonBan.LayLoiNhuan(filter, ref error);
+            DataSet ds = blHoaDonBan.LayLoiNhuan(filter, ref error); // Calls the updated method
             if (ds != null && ds.Tables.Count > 0)
             {
                 dgvLoiNhuan.DataSource = ds.Tables[0];
-                // Format total revenue column (since profit is simplified to revenue here)
-                if (dgvLoiNhuan.Columns.Contains("TongDoanhThu"))
+                // Format total profit column
+                if (dgvLoiNhuan.Columns.Contains("TongLoiNhuan")) // Column name changed to TongLoiNhuan
                 {
-                    dgvLoiNhuan.Columns["TongDoanhThu"].DefaultCellStyle.Format = "N0";
+                    dgvLoiNhuan.Columns["TongLoiNhuan"].HeaderText = "Tổng Lợi Nhuận"; // Set header text for clarity
+                    dgvLoiNhuan.Columns["TongLoiNhuan"].DefaultCellStyle.Format = "N0";
+                }
+                // Set HeaderText for other columns for consistency
+                if (dgvLoiNhuan.Columns.Contains("MaHoaDonBan"))
+                {
+                    dgvLoiNhuan.Columns["MaHoaDonBan"].HeaderText = "Mã Hóa Đơn Bán";
+                }
+                if (dgvLoiNhuan.Columns.Contains("NgayBan"))
+                {
+                    dgvLoiNhuan.Columns["NgayBan"].HeaderText = "Ngày Bán";
                 }
             }
             else
@@ -85,7 +104,20 @@ namespace Convenience_Store_Management.GUI
                 // Format currency columns
                 if (dgvHHDaBan.Columns.Contains("TongThanhTien"))
                 {
+                    dgvHHDaBan.Columns["TongThanhTien"].HeaderText = "Tổng Thành Tiền";
                     dgvHHDaBan.Columns["TongThanhTien"].DefaultCellStyle.Format = "N0";
+                }
+                if (dgvHHDaBan.Columns.Contains("MaSanPham"))
+                {
+                    dgvHHDaBan.Columns["MaSanPham"].HeaderText = "Mã Sản Phẩm";
+                }
+                if (dgvHHDaBan.Columns.Contains("TenSP"))
+                {
+                    dgvHHDaBan.Columns["TenSP"].HeaderText = "Tên Sản Phẩm";
+                }
+                if (dgvHHDaBan.Columns.Contains("TongSoLuongDaBan"))
+                {
+                    dgvHHDaBan.Columns["TongSoLuongDaBan"].HeaderText = "Tổng Số Lượng Đã Bán";
                 }
             }
             else
