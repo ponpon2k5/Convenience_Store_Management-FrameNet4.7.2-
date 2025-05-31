@@ -2,43 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Textbox Name="Textbox1">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>BÁO CÁO HÓA ĐƠN BÁN HÀNG</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Times New Roman</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                  <Color>#000000</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Left>0.78333in</Left>
-        <Height>0.25in</Height>
-        <Width>4.45833in</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
@@ -48,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>2.49166in</Height>
+              <Height>2.91333in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -69,6 +32,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>MaHoaDonBan</rd:DefaultName>
+                          <Top>0.59722in</Top>
                           <Height>0.25in</Height>
                           <Width>1in</Width>
                           <Style>
@@ -96,6 +60,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>NgayBan</rd:DefaultName>
+                          <Top>0.59722in</Top>
                           <Left>1.36694in</Left>
                           <Height>0.25in</Height>
                           <Width>1in</Width>
@@ -125,7 +90,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>MaNhanVien</rd:DefaultName>
-                          <Left>2.78056in</Left>
+                          <Top>0.61111in</Top>
+                          <Left>2.92222in</Left>
                           <Height>0.25in</Height>
                           <Width>1in</Width>
                           <ZIndex>2</ZIndex>
@@ -154,6 +120,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SDTKhachHang</rd:DefaultName>
+                          <Top>0.56944in</Top>
                           <Left>4.38in</Left>
                           <Height>0.25in</Height>
                           <Width>1.45in</Width>
@@ -452,6 +419,9 @@
                               </TablixMember>
                               <TablixMember>
                                 <Group Name="Details1" />
+                                <TablixMembers>
+                                  <TablixMember />
+                                </TablixMembers>
                               </TablixMember>
                             </TablixMembers>
                           </TablixRowHierarchy>
@@ -466,6 +436,76 @@
                             </Border>
                           </Style>
                         </Tablix>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>BÁO CÁO HÓA ĐƠN BÁN HÀNG</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Left>0.57611in</Left>
+                          <Height>0.25in</Height>
+                          <Width>4.45833in</Width>
+                          <ZIndex>5</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="ThanhTien1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!ThanhTien.Value)</Value>
+                                  <Style>
+                                    <Format>#,0.00'VND';(#,0.00'VND')</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ThanhTien1</rd:DefaultName>
+                          <Top>2.47167in</Top>
+                          <Left>4.21778in</Left>
+                          <Height>0.25in</Height>
+                          <Width>1.475in</Width>
+                          <ZIndex>6</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
                       </ReportItems>
                       <KeepTogether>true</KeepTogether>
                       <Style>
@@ -474,6 +514,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -500,11 +541,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataTable1</DataSetName>
-        <Top>0.42167in</Top>
         <Left>0.20722in</Left>
-        <Height>2.49166in</Height>
+        <Height>2.91333in</Height>
         <Width>5.90611in</Width>
-        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -517,6 +556,8 @@
   </Body>
   <Width>6.11333in</Width>
   <Page>
+    <PageHeight>11.69in</PageHeight>
+    <PageWidth>8.27in</PageWidth>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
     <TopMargin>1in</TopMargin>
