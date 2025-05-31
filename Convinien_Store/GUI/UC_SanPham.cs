@@ -21,6 +21,60 @@ namespace Convenience_Store_Management.GUI
             InitializeComponent();
         }
 
+        private void UC_SanPham_Load(object sender, EventArgs e)
+        {
+            LoadHangHoaData();
+        }
+
+        private void LoadHangHoaData()
+        {
+            try
+            {
+                DataSet ds = blHangHoa.LayHangHoa();
+                dataGridView1.DataSource = ds.Tables[0];
+
+                // Đặt header text cho DataGridView
+                if (dataGridView1.Columns.Contains("MaSanPham"))
+                    dataGridView1.Columns["MaSanPham"].HeaderText = "Mã Sản Phẩm";
+                if (dataGridView1.Columns.Contains("TenSP"))
+                    dataGridView1.Columns["TenSP"].HeaderText = "Tên Sản Phẩm";
+                if (dataGridView1.Columns.Contains("SoLuong"))
+                    dataGridView1.Columns["SoLuong"].HeaderText = "Số Lượng Tồn";
+                if (dataGridView1.Columns.Contains("Gia"))
+                    dataGridView1.Columns["Gia"].HeaderText = "Giá Bán"; // Updated header text
+                if (dataGridView1.Columns.Contains("GiaNhap"))
+                    dataGridView1.Columns["GiaNhap"].HeaderText = "Giá Nhập"; // Updated header text
+
+                // Định dạng cột Giá và Giá Nhập
+                if (dataGridView1.Columns.Contains("Gia"))
+                {
+                    dataGridView1.Columns["Gia"].DefaultCellStyle.Format = "N0";
+                }
+                if (dataGridView1.Columns.Contains("GiaNhap"))
+                {
+                    dataGridView1.Columns["GiaNhap"].DefaultCellStyle.Format = "N0";
+                }
+
+                // Chặn người dùng chỉnh sửa trực tiếp trên DataGridView
+                dataGridView1.ReadOnly = true;
+                dataGridView1.AllowUserToAddRows = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra xem có phải là hàng dữ liệu hợp lệ không (không phải header hay hàng trống)
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                txtMaHHXoa.Text = row.Cells["MaSanPham"].Value.ToString();
+            }
+        }
+
         private void btnThemHH_Click(object sender, EventArgs e)
         {
             string maSanPham = txtMaHHThem.Text.Trim();
@@ -73,12 +127,13 @@ namespace Convenience_Store_Management.GUI
                     blHangHoa.db.CommitTransaction();
                     MessageBox.Show("Thêm hàng hóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Optionally clear input fields
+                    // Clear input fields
                     txtMaHHThem.Clear();
                     txtTenHH.Clear();
                     txtSoLuong.Clear();
                     txtGiaBan.Clear();
-                    txtGiaNhap.Clear(); // NEW: Clear GiaNhap
+                    txtGiaNhap.Clear();
+                    LoadHangHoaData(); // Refresh DataGridView after adding
                 }
                 else
                 {
@@ -100,7 +155,7 @@ namespace Convenience_Store_Management.GUI
 
             if (string.IsNullOrEmpty(maSanPhamXoa))
             {
-                MessageBox.Show("Vui lòng nhập Mã hàng hóa cần xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập Mã hàng hóa cần xóa hoặc chọn từ danh sách.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -124,6 +179,7 @@ namespace Convenience_Store_Management.GUI
                         blHangHoa.db.CommitTransaction();
                         MessageBox.Show("Xóa hàng hóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtMaHHXoa.Clear();
+                        LoadHangHoaData(); // Refresh DataGridView after deletion
                     }
                     else
                     {
