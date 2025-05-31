@@ -17,7 +17,8 @@ namespace QLBanHang_3Tang.BS_layer
         public DataSet LayHangHoa()
         {
             // Include GiaNhap in SELECT statement
-            string sql = "SELECT MaSanPham, TenSP, SoLuong, Gia, GiaNhap FROM HANG_HOA";
+            // ONLY SELECT active items
+            string sql = "SELECT MaSanPham, TenSP, SoLuong, Gia, GiaNhap FROM HANG_HOA WHERE IsActive = 1"; //
             return db.ExecuteQueryDataSet(sql, CommandType.Text);
         }
 
@@ -29,9 +30,9 @@ namespace QLBanHang_3Tang.BS_layer
             string giaStr = gia.ToString(System.Globalization.CultureInfo.InvariantCulture);
             string giaNhapStr = giaNhap.ToString(System.Globalization.CultureInfo.InvariantCulture); // Convert decimal GiaNhap
 
-            // SQL INSERT statement with GiaNhap
-            string sql = $"INSERT INTO HANG_HOA (MaSanPham, TenSP, SoLuong, Gia, GiaNhap) " +
-                         $"VALUES ('{maSanPham.Replace("'", "''")}', N'{tenSPSafe}', {soLuong}, {giaStr}, {giaNhapStr})";
+            // SQL INSERT statement with GiaNhap and IsActive
+            string sql = $"INSERT INTO HANG_HOA (MaSanPham, TenSP, SoLuong, Gia, GiaNhap, IsActive) " + //
+                         $"VALUES ('{maSanPham.Replace("'", "''")}', N'{tenSPSafe}', {soLuong}, {giaStr}, {giaNhapStr}, 1)"; //
 
             return db.MyExecuteNonQuery(sql, CommandType.Text, ref error);
         }
@@ -46,17 +47,18 @@ namespace QLBanHang_3Tang.BS_layer
             return db.MyExecuteNonQuery(sql, CommandType.Text, ref error);
         }
 
-        // XoaHangHoa remains unchanged
+        // XoaHangHoa: Modified for soft delete
         public bool XoaHangHoa(string maSanPham, ref string error)
         {
-            string sql = $"DELETE FROM HANG_HOA WHERE MaSanPham = '{maSanPham.Replace("'", "''")}'";
+            string sql = $"UPDATE HANG_HOA SET IsActive = 0 WHERE MaSanPham = '{maSanPham.Replace("'", "''")}'"; //
             return db.MyExecuteNonQuery(sql, CommandType.Text, ref error);
         }
 
         // LayMaSanPhamTuTen remains unchanged
         public string LayMaSanPhamTuTen(string tenSP)
         {
-            string sql = $"SELECT MaSanPham FROM HANG_HOA WHERE TenSP = N'{tenSP.Replace("'", "''")}'";
+            // Only consider active products
+            string sql = $"SELECT MaSanPham FROM HANG_HOA WHERE TenSP = N'{tenSP.Replace("'", "''")}' AND IsActive = 1"; //
 
             DataSet ds = null;
             string maSanPham = null;
@@ -78,7 +80,8 @@ namespace QLBanHang_3Tang.BS_layer
         // LayGiaBan remains unchanged (as it specifically gets selling price)
         public decimal? LayGiaBan(string maSP)
         {
-            string sql = $"SELECT Gia FROM HANG_HOA WHERE MaSanPham = '{maSP.Replace("'", "''")}'";
+            // Only get price for active products
+            string sql = $"SELECT Gia FROM HANG_HOA WHERE MaSanPham = '{maSP.Replace("'", "''")}' AND IsActive = 1"; //
 
             DataSet ds = null;
             decimal? giaBan = null;
@@ -98,9 +101,25 @@ namespace QLBanHang_3Tang.BS_layer
         }
 
         // TimHangHoa: Included GiaNhap in SELECT statement
+        // Only search active items by default
         public DataSet TimHangHoa(string maSanPham, ref string error)
         {
-            string sql = $"SELECT MaSanPham, TenSP, SoLuong, Gia, GiaNhap FROM HANG_HOA WHERE MaSanPham LIKE '%{maSanPham.Replace("'", "''")}%'";
+            string sql = $"SELECT MaSanPham, TenSP, SoLuong, Gia, GiaNhap FROM HANG_HOA WHERE MaSanPham LIKE '%{maSanPham.Replace("'", "''")}%' AND IsActive = 1"; //
+            try
+            {
+                return db.ExecuteQueryDataSet(sql, CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return null;
+            }
+        }
+
+        // NEW: Method to retrieve ALL HangHoa (including inactive) for an admin view, if needed
+        public DataSet LayTatCaHangHoa(ref string error)
+        {
+            string sql = "SELECT MaSanPham, TenSP, SoLuong, Gia, GiaNhap, IsActive FROM HANG_HOA"; //
             try
             {
                 return db.ExecuteQueryDataSet(sql, CommandType.Text);

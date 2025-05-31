@@ -26,11 +26,12 @@ namespace Convenience_Store_Management.GUI
             LoadHangHoaData();
         }
 
-        private void LoadHangHoaData()
+        public void LoadHangHoaData()
         {
             try
             {
-                DataSet ds = blHangHoa.LayHangHoa();
+                // Now, LayHangHoa() only returns active products.
+                DataSet ds = blHangHoa.LayHangHoa(); //
                 dataGridView1.DataSource = ds.Tables[0];
 
                 // Đặt header text cho DataGridView
@@ -53,6 +54,11 @@ namespace Convenience_Store_Management.GUI
                 if (dataGridView1.Columns.Contains("GiaNhap"))
                 {
                     dataGridView1.Columns["GiaNhap"].DefaultCellStyle.Format = "N0";
+                }
+                // Hide IsActive column if it exists and is not needed for display
+                if (dataGridView1.Columns.Contains("IsActive"))
+                {
+                    dataGridView1.Columns["IsActive"].Visible = false;
                 }
 
                 // Chặn người dùng chỉnh sửa trực tiếp trên DataGridView
@@ -119,8 +125,8 @@ namespace Convenience_Store_Management.GUI
             blHangHoa.db.BeginTransaction();
             try
             {
-                // Call ThemHangHoa with 6 arguments (added giaNhap)
-                success = blHangHoa.ThemHangHoa(maSanPham, tenSP, soLuong, gia, giaNhap, ref error);
+                // Call ThemHangHoa with 6 arguments (added giaNhap and IsActive implicitly set to 1)
+                success = blHangHoa.ThemHangHoa(maSanPham, tenSP, soLuong, gia, giaNhap, ref error); //
 
                 if (success)
                 {
@@ -148,7 +154,7 @@ namespace Convenience_Store_Management.GUI
             }
         }
 
-        // btnXoaHH_Click remains unchanged
+        // btnXoaHH_Click now performs soft delete
         private void btnXoaHH_Click(object sender, EventArgs e)
         {
             string maSanPhamXoa = txtMaHHXoa.Text.Trim();
@@ -159,8 +165,8 @@ namespace Convenience_Store_Management.GUI
                 return;
             }
 
-            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa hàng hóa có mã '{maSanPhamXoa}'?",
-                                                 "Xác nhận Xóa",
+            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa hàng hóa có mã '{maSanPhamXoa}'? (Thao tác này sẽ ẩn sản phẩm khỏi danh sách)",
+                                                 "Xác nhận Xóa Mềm", // Changed confirmation message
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Question);
 
@@ -172,25 +178,26 @@ namespace Convenience_Store_Management.GUI
                 blHangHoa.db.BeginTransaction();
                 try
                 {
-                    success = blHangHoa.XoaHangHoa(maSanPhamXoa, ref error);
+                    // Call the modified XoaHangHoa for soft delete
+                    success = blHangHoa.XoaHangHoa(maSanPhamXoa, ref error); //
 
                     if (success)
                     {
                         blHangHoa.db.CommitTransaction();
-                        MessageBox.Show("Xóa hàng hóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Xóa mềm hàng hóa thành công! Sản phẩm đã được ẩn khỏi danh sách.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtMaHHXoa.Clear();
-                        LoadHangHoaData(); // Refresh DataGridView after deletion
+                        LoadHangHoaData(); // Refresh DataGridView after soft deletion
                     }
                     else
                     {
                         blHangHoa.db.RollbackTransaction();
-                        MessageBox.Show($"Xóa hàng hóa thất bại: {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Xóa mềm hàng hóa thất bại: {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
                 {
                     blHangHoa.db.RollbackTransaction();
-                    MessageBox.Show($"Đã xảy ra lỗi không mong muốn trong quá trình xóa hàng hóa: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Đã xảy ra lỗi không mong muốn trong quá trình xóa mềm hàng hóa: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
