@@ -1,4 +1,5 @@
-﻿namespace Convinien_Store
+﻿// Convinien_Store/FormViewSalesInvoice.Designer.cs
+namespace Convinien_Store
 {
     partial class FormViewSalesInvoice
     {
@@ -34,17 +35,19 @@
             // reportViewer1
             //
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Convinien_Store.HoaDonBan.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(30, 65);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0); // Đặt lại Location về 0,0 để nó bắt đầu từ góc trên bên trái
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(739, 332);
+            this.reportViewer1.Size = new System.Drawing.Size(739, 332); // Kích thước ban đầu, sẽ được tự động điều chỉnh
             this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill; // <<-- THÊM HOẶC SỬA DÒNG NÀY
+
             //
             // FormViewSalesInvoice
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 450); // Kích thước ban đầu của Form
             this.Controls.Add(this.reportViewer1);
             this.Name = "FormViewSalesInvoice";
             this.Text = "FormViewSalesInvoice";

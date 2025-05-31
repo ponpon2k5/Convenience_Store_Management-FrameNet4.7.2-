@@ -16,22 +16,16 @@ namespace Convenience_Store_Management.GUI
         public UC_TimKiem()
         {
             InitializeComponent();
-            // Hook up the Load event handler
             this.Load += new System.EventHandler(this.UC_TimKiem_Load);
         }
 
-        // NEW: UC_TimKiem_Load event handler to preload data
         private void UC_TimKiem_Load(object sender, EventArgs e)
         {
-            // Trigger each search button's click event with null arguments.
-            // This will use the current (empty) textbox values to search,
-            // effectively loading all data due to the LIKE '%%' in the BL queries.
-            btnTimHH_Click(null, null); // Preload all products
-            btnTimHD_Click(null, null); // Preload all invoices
-            btnTimKH_Click(null, null); // Preload all customers
+            btnTimHH_Click(null, null);
+            btnTimHD_Click(null, null);
+            btnTimKH_Click(null, null);
         }
 
-        // Event handler for "Tìm kiếm" (Search) button on "Hàng hóa" tab
         private void btnTimHH_Click(object sender, EventArgs e)
         {
             string maHangHoa = txtMaHH.Text.Trim();
@@ -44,7 +38,6 @@ namespace Convenience_Store_Management.GUI
                 {
                     MessageBox.Show("Không tìm thấy hàng hóa nào khớp với mã đã nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                // Format total column if exists
                 if (dataGridView1.Columns.Contains("Gia"))
                 {
                     dataGridView1.Columns["Gia"].DefaultCellStyle.Format = "N0";
@@ -61,7 +54,6 @@ namespace Convenience_Store_Management.GUI
             }
         }
 
-        // Event handler for "Sửa" (Edit) button on "Hàng hóa" tab
         private void btnSuaHH_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
@@ -70,16 +62,13 @@ namespace Convenience_Store_Management.GUI
                 return;
             }
 
-            // Get the selected product's MaSanPham
             string maSanPham = dataGridView1.SelectedRows[0].Cells["MaSanPham"].Value.ToString();
             string error = "";
 
-            // Get current values from the selected row and initialize new variables with them
             decimal newGiaBan = Convert.ToDecimal(dataGridView1.SelectedRows[0].Cells["Gia"].Value);
             decimal newGiaNhap = Convert.ToDecimal(dataGridView1.SelectedRows[0].Cells["GiaNhap"].Value);
             int newSoLuong = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["SoLuong"].Value);
 
-            // Try to parse new values from textboxes if they are not empty
             if (!string.IsNullOrEmpty(txtGiaBanMoi.Text))
             {
                 if (!decimal.TryParse(txtGiaBanMoi.Text, out newGiaBan) || newGiaBan <= 0)
@@ -107,15 +96,11 @@ namespace Convenience_Store_Management.GUI
                 }
             }
 
-            // Perform the update
             if (blHangHoa.CapNhatHangHoa(maSanPham, newGiaBan, newGiaNhap, newSoLuong, ref error))
             {
                 MessageBox.Show("Cập nhật thông tin hàng hóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Clear the MaHH textbox to ensure all products are reloaded
-                txtMaHH.Clear(); // <-- ADDED THIS LINE
-                // Refresh data grid view to show updated information
+                txtMaHH.Clear();
                 btnTimHH_Click(sender, e);
-                // Clear the update textboxes
                 txtGiaBanMoi.Clear();
                 txtGiaNhapMoi.Clear();
                 txtSoLuongMoi.Clear();
@@ -138,8 +123,6 @@ namespace Convenience_Store_Management.GUI
             }
         }
 
-
-        // Event handler for "Tìm kiếm" (Search) button on "Hóa đơn" tab
         private void btnTimHD_Click(object sender, EventArgs e)
         {
             string maHoaDon = txtMaHD.Text.Trim();
@@ -152,7 +135,6 @@ namespace Convenience_Store_Management.GUI
                 {
                     MessageBox.Show("Không tìm thấy hóa đơn nào khớp với mã đã nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                // Format total column if exists
                 if (dataGridView3.Columns.Contains("TongCong"))
                 {
                     dataGridView3.Columns["TongCong"].DefaultCellStyle.Format = "N0";
@@ -165,10 +147,9 @@ namespace Convenience_Store_Management.GUI
             }
         }
 
-        // Event handler for "Tìm kiếm" (Search) button on "Khách hàng" tab
         private void btnTimKH_Click(object sender, EventArgs e)
         {
-            string sdtKhachHang = textBox1.Text.Trim(); // This is the textbox for SDT
+            string sdtKhachHang = textBox1.Text.Trim();
             string error = "";
             DataSet ds = blKhachHang.TimKhachHang(sdtKhachHang, ref error);
             if (ds != null && ds.Tables.Count > 0)
@@ -191,13 +172,23 @@ namespace Convenience_Store_Management.GUI
             if (dataGridView3.SelectedRows.Count > 0)
             {
                 string maHoaDonBan = dataGridView3.SelectedRows[0].Cells["MaHoaDonBan"].Value.ToString();
-                FormViewSalesInvoice formView = new FormViewSalesInvoice(maHoaDonBan); // Truyền mã hóa đơn vào constructor
-                formView.ShowDialog(); // Hiển thị form báo cáo
+                // Gọi constructor FormViewSalesInvoice(string)
+                FormViewSalesInvoice formView = new FormViewSalesInvoice(maHoaDonBan);
+                formView.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn một hóa đơn để xem chi tiết.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        // <<-- THÊM PHƯƠNG THỨC MỚI CHO NÚT "Xem Tất Cả Hóa Đơn"
+        private void btnViewAllInvoices_Click(object sender, EventArgs e)
+        {
+            // Gọi constructor FormViewSalesInvoice() không tham số
+            FormViewSalesInvoice formView = new FormViewSalesInvoice();
+            formView.ShowDialog();
+        }
+        // <<-- KẾT THÚC PHƯƠNG THỨC MỚI
     }
 }

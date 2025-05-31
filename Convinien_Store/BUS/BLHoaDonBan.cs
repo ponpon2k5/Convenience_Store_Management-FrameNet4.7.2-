@@ -1,14 +1,14 @@
 ﻿// BUS/BLHoaDonBan.cs
 using System;
 using System.Data;
-using Convenience_Store_Management.DAL; // Ensure this namespace is correct
-using Microsoft.Data.SqlClient; // Required for SqlException, if used directly in methods (though ConnectDB handles most)
+using Convenience_Store_Management.DAL;
+using Microsoft.Data.SqlClient;
 
 namespace QLBanHang_3Tang.BS_layer
 {
     public class BLHoaDonBan
     {
-        public ConnectDB db; // Made public for transaction management from UI
+        public ConnectDB db;
 
         public BLHoaDonBan()
         {
@@ -18,10 +18,8 @@ namespace QLBanHang_3Tang.BS_layer
         // Method to add a sales invoice (HOA_DON_BAN) - 5 arguments
         public bool ThemHoaDonBan(string maHoaDonBan, string maNhanVien, string sdtKhachHang, DateTime ngayBan, ref string error)
         {
-            // Prepare MaNhanVien for SQL: if C# string is null/empty, use SQL NULL literal
-            string maNhanVienSql = string.IsNullOrEmpty(maNhanVien) ? "NULL" : $"'{maNhanVien.Replace("'", "''")}'"; // Handle single quotes
-            // Prepare SDTKhachHang for SQL: if C# string is null/empty, use SQL NULL literal
-            string sdtKhachHangSql = string.IsNullOrEmpty(sdtKhachHang) ? "NULL" : $"'{sdtKhachHang.Replace("'", "''")}'"; // Handle single quotes
+            string maNhanVienSql = string.IsNullOrEmpty(maNhanVien) ? "NULL" : $"'{maNhanVien.Replace("'", "''")}'";
+            string sdtKhachHangSql = string.IsNullOrEmpty(sdtKhachHang) ? "NULL" : $"'{sdtKhachHang.Replace("'", "''")}'";
 
             string sql = $"INSERT INTO HOA_DON_BAN (MaHoaDonBan, MaNhanVien, SDTKhachHang, NgayBan) " +
                          $"VALUES ('{maHoaDonBan.Replace("'", "''")}', {maNhanVienSql}, {sdtKhachHangSql}, '{ngayBan.ToString("yyyy-MM-dd")}')";
@@ -49,7 +47,6 @@ namespace QLBanHang_3Tang.BS_layer
         public bool ProcessSaleTransaction(string maHoaDonBan, string maNhanVien, string sdtKhachHang,
                                            DataTable cartItems, ref string error)
         {
-            // totalBillAmount is calculated but not inserted into HOA_DON_BAN as per your request
             decimal totalBillAmount = 0;
 
             db.BeginTransaction();
@@ -79,7 +76,7 @@ namespace QLBanHang_3Tang.BS_layer
                         db.RollbackTransaction();
                         return false;
                     }
-                    totalBillAmount += thanhTien; // Keep calculating total for internal use if needed
+                    totalBillAmount += thanhTien;
                 }
 
                 db.CommitTransaction();
@@ -96,8 +93,7 @@ namespace QLBanHang_3Tang.BS_layer
         // Method to get MaSanPham from TenSP (used by UC_HoaDon)
         public string LayMaSanPhamTuTen(string tenSP)
         {
-            // IMPORTANT: SQL Injection Vulnerability! In a real app, use parameterized queries.
-            string sql = $"SELECT MaSanPham FROM HANG_HOA WHERE TenSP = N'{tenSP.Replace("'", "''")}'"; // N' for NVARCHAR, handle single quotes
+            string sql = $"SELECT MaSanPham FROM HANG_HOA WHERE TenSP = N'{tenSP.Replace("'", "''")}'";
 
             DataSet ds = null;
             string maSanPham = null;
@@ -111,7 +107,6 @@ namespace QLBanHang_3Tang.BS_layer
             }
             catch (Exception ex)
             {
-                // Log the error (e.g., to a file or console)
                 Console.WriteLine("Lỗi khi lấy mã sản phẩm: " + ex.Message);
             }
             return maSanPham;
@@ -120,8 +115,7 @@ namespace QLBanHang_3Tang.BS_layer
         // Method to get GiaBan from MaSanPham (used by UC_HoaDon)
         public decimal? LayGiaBan(string maSP)
         {
-            // IMPORTANT: SQL Injection Vulnerability! In a real app, use parameterized queries.
-            string sql = $"SELECT Gia FROM HANG_HOA WHERE MaSanPham = '{maSP.Replace("'", "''")}'"; // Handle single quotes
+            string sql = $"SELECT Gia FROM HANG_HOA WHERE MaSanPham = '{maSP.Replace("'", "''")}'";
 
             DataSet ds = null;
             decimal? giaBan = null;
@@ -135,13 +129,12 @@ namespace QLBanHang_3Tang.BS_layer
             }
             catch (Exception ex)
             {
-                // Log the error
                 Console.WriteLine("Lỗi khi lấy giá bán: " + ex.Message);
             }
             return giaBan;
         }
 
-        // NEW: Method to get details of a specific sales invoice
+        // NEW: Method to get details of a specific sales invoice (hiện tại đã có)
         public DataSet LayChiTietHoaDon(string maHoaDonBan, ref string error)
         {
             string sql = $"SELECT HDB.MaHoaDonBan, HDB.NgayBan, HDB.MaNhanVien, HDB.SDTKhachHang, " +
@@ -149,7 +142,7 @@ namespace QLBanHang_3Tang.BS_layer
                          $"FROM HOA_DON_BAN AS HDB " +
                          $"JOIN CHI_TIET_BAN AS CTB ON HDB.MaHoaDonBan = CTB.MaHoaDonBan " +
                          $"JOIN HANG_HOA AS HH ON CTB.MaSanPham = HH.MaSanPham " +
-                         $"WHERE HDB.MaHoaDonBan = '{maHoaDonBan.Replace("'", "''")}'"; // Filter by MaHoaDonBan
+                         $"WHERE HDB.MaHoaDonBan = '{maHoaDonBan.Replace("'", "''")}'";
             try
             {
                 return db.ExecuteQueryDataSet(sql, CommandType.Text);
@@ -160,6 +153,27 @@ namespace QLBanHang_3Tang.BS_layer
                 return null;
             }
         }
+
+        // NEW: Phương thức để lấy TẤT CẢ các chi tiết hóa đơn
+        public DataSet LayTatCaChiTietHoaDon(ref string error)
+        {
+            string sql = $"SELECT HDB.MaHoaDonBan, HDB.NgayBan, HDB.MaNhanVien, HDB.SDTKhachHang, " +
+                         $"CTB.MaSanPham, HH.TenSP, CTB.SoLuong, CTB.GiaBan, CTB.ThanhTien " +
+                         $"FROM HOA_DON_BAN AS HDB " +
+                         $"JOIN CHI_TIET_BAN AS CTB ON HDB.MaHoaDonBan = CTB.MaHoaDonBan " +
+                         $"JOIN HANG_HOA AS HH ON CTB.MaSanPham = HH.MaSanPham " +
+                         $"ORDER BY HDB.NgayBan DESC, HDB.MaHoaDonBan ASC"; // Sắp xếp để dễ nhìn
+            try
+            {
+                return db.ExecuteQueryDataSet(sql, CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return null;
+            }
+        }
+
 
         // Statistics methods (used by UC_ThongKe)
         public DataSet LayDoanhThu(string filterType, ref string error)
@@ -212,8 +226,6 @@ namespace QLBanHang_3Tang.BS_layer
                 dateFilter = $"WHERE NgayBan >= '{startOfMonth.ToString("yyyy-MM-dd")}' AND NgayBan < '{endOfMonth.ToString("yyyy-MM-dd")}'";
             }
 
-            // Simplified profit calculation (currently same as revenue due to schema).
-            // True profit needs cost of goods sold (GiaNhap from CHI_TIET_NHAP).
             string sql = $"SELECT HDB.MaHoaDonBan, HDB.NgayBan, SUM(CTB.ThanhTien) AS TongDoanhThu " +
                          $"FROM HOA_DON_BAN AS HDB JOIN CHI_TIET_BAN AS CTB ON HDB.MaHoaDonBan = CTB.MaHoaDonBan " +
                          $"{dateFilter} GROUP BY HDB.MaHoaDonBan, HDB.NgayBan ORDER BY HDB.NgayBan DESC";
@@ -264,7 +276,6 @@ namespace QLBanHang_3Tang.BS_layer
         // Search methods (used by UC_TimKiem)
         public DataSet TimHoaDon(string maHoaDonBan, ref string error)
         {
-            // SQL Injection Vulnerability!
             string sql = $"SELECT HDB.MaHoaDonBan, HDB.MaNhanVien, HDB.SDTKhachHang, HDB.NgayBan, SUM(CTB.ThanhTien) AS TongCong " +
                          $"FROM HOA_DON_BAN AS HDB JOIN CHI_TIET_BAN AS CTB ON HDB.MaHoaDonBan = CTB.MaHoaDonBan " +
                          $"WHERE HDB.MaHoaDonBan LIKE '%{maHoaDonBan.Replace("'", "''")}%' " +

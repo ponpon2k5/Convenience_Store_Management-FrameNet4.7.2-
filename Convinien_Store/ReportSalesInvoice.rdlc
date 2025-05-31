@@ -26,7 +26,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Left>0.975in</Left>
+        <Left>0.78333in</Left>
         <Height>0.25in</Height>
         <Width>4.45833in</Width>
         <Style>
@@ -43,12 +43,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.83944in</Width>
+              <Width>5.90611in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>2.50833in</Height>
+              <Height>2.49166in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -69,7 +69,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>MaHoaDonBan</rd:DefaultName>
-                          <Left>0in</Left>
                           <Height>0.25in</Height>
                           <Width>1in</Width>
                           <Style>
@@ -97,7 +96,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>NgayBan</rd:DefaultName>
-                          <Left>1.06944in</Left>
+                          <Left>1.36694in</Left>
                           <Height>0.25in</Height>
                           <Width>1in</Width>
                           <ZIndex>1</ZIndex>
@@ -126,7 +125,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>MaNhanVien</rd:DefaultName>
-                          <Left>2.13889in</Left>
+                          <Left>2.78056in</Left>
                           <Height>0.25in</Height>
                           <Width>1in</Width>
                           <ZIndex>2</ZIndex>
@@ -155,7 +154,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SDTKhachHang</rd:DefaultName>
-                          <Left>3.20833in</Left>
+                          <Left>4.38in</Left>
                           <Height>0.25in</Height>
                           <Width>1.45in</Width>
                           <ZIndex>3</ZIndex>
@@ -173,21 +172,21 @@
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
-                                <Width>1.92111in</Width>
+                                <Width>1.68778in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.92111in</Width>
+                                <Width>1.68778in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.38389in</Width>
+                                <Width>1.15056in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.53722in</Width>
+                                <Width>1.30389in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
                               <TablixRow>
-                                <Height>0.25in</Height>
+                                <Height>0.69167in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -312,7 +311,7 @@
                                 </TablixCells>
                               </TablixRow>
                               <TablixRow>
-                                <Height>0.25in</Height>
+                                <Height>0.69167in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -456,11 +455,10 @@
                               </TablixMember>
                             </TablixMembers>
                           </TablixRowHierarchy>
-                          <DataSetName>DataSet1</DataSetName>
+                          <DataSetName>DataTable1</DataSetName>
                           <Top>0.96667in</Top>
-                          <Left>0in</Left>
-                          <Height>0.5in</Height>
-                          <Width>6.76333in</Width>
+                          <Height>1.38333in</Height>
+                          <Width>5.83in</Width>
                           <ZIndex>4</ZIndex>
                           <Style>
                             <Border>
@@ -468,44 +466,6 @@
                             </Border>
                           </Style>
                         </Tablix>
-                        <Textbox Name="Textbox21">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=="Tổng Cộng: " &amp; SUM(Fields!ThanhTien.Value)</Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                    <FontWeight>Normal</FontWeight>
-                                    <Format>0.0 'VND';(0.0 'VND')</Format>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox21</rd:DefaultName>
-                          <Top>2.06667in</Top>
-                          <Left>4.77611in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.65833in</Width>
-                          <ZIndex>5</ZIndex>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
                       </ReportItems>
                       <KeepTogether>true</KeepTogether>
                       <Style>
@@ -539,11 +499,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
+        <DataSetName>DataTable1</DataSetName>
         <Top>0.42167in</Top>
         <Left>0.20722in</Left>
-        <Height>2.50833in</Height>
-        <Width>6.83944in</Width>
+        <Height>2.49166in</Height>
+        <Width>5.90611in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -552,10 +512,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>4.24167in</Height>
+    <Height>2.91333in</Height>
     <Style />
   </Body>
-  <Width>7.18833in</Width>
+  <Width>6.11333in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -574,7 +534,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="DataTable1">
       <Query>
         <DataSourceName>HoaDonBan</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -619,7 +579,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>HoaDonBan</rd:DataSetName>
-        <rd:SchemaPath>D:\OneDrive - PhongPham Company\Code\WindowDev\Convinien_Store\Convinien_Store\HoaDonBan.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\OneDrive - PhongPham Company\Code\WindowDev\Convinien_Store\Convinien_Store\StoreReportsDataSet.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod>FillByInvoiceData</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetInvoiceDetails</rd:TableAdapterGetDataMethod>

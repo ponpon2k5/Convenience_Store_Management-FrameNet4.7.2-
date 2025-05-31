@@ -321,6 +321,37 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\Convenience_Store_Management.DAL.ConnectDB.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.FormKhachHang.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.FormLogin.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.FormNhanVien.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.FormReg.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.GUI.UC_GioHang_Khach.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.GUI.UC_HangHoa_Khach+AddToCartEventHandler.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.GUI.UC_HangHoa_Khach.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.GUI.UC_HoaDon.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.GUI.UC_SanPham.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.GUI.UC_ThanhVien_Khach.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.GUI.UC_ThongKe.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.GUI.UC_TimKiem.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.Helper.SessionManager.datasource" />
+    <None Include="Properties\DataSources\Convenience_Store_Management.Program.datasource" />
+    <None Include="Properties\DataSources\Convinien_Store.HoaDonBanTableAdapters.DataTable1TableAdapter.datasource" />
+    <None Include="Properties\DataSources\Convinien_Store.HoaDonBanTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\Convinien_Store.HoaDonBanTableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\Convinien_Store.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\Convinien_Store.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\FormViewSalesInvoice.datasource" />
+    <None Include="Properties\DataSources\HoaDonBan.datasource" />
+    <None Include="Properties\DataSources\HoaDonBan.DataTable1DataTable.datasource" />
+    <None Include="Properties\DataSources\HoaDonBan.DataTable1Row.datasource" />
+    <None Include="Properties\DataSources\HoaDonBan.DataTable1RowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\HoaDonBan.DataTable1RowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLBanHang_3Tang.BS_layer.BLHangHoa.datasource" />
+    <None Include="Properties\DataSources\QLBanHang_3Tang.BS_layer.BLHoaDonBan.datasource" />
+    <None Include="Properties\DataSources\QLBanHang_3Tang.BS_layer.BLKhachHang.datasource" />
+    <None Include="Properties\DataSources\QLBanHang_3Tang.BS_layer.BLTaiKhoan.datasource" />
+    <None Include="Properties\DataSources\SqlServerTypes.Utilities.datasource" />
     <None Include="StoreReportsDataSet.xsc">
       <DependentUpon>StoreReportsDataSet.xsd</DependentUpon>
     </None>
