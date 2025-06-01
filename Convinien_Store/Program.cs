@@ -12,12 +12,11 @@ namespace Convenience_Store_Management
         [STAThread]
         static void Main()
         {
-            // Thi?t l?p ch? ?? hi?n th? cho ?ng d?ng
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Ch?y ?ng d?ng v?i FormLogin
-            Application.Run(new FormKhachHang());
+            Application.Run(new FormLogin());
         }
     }
 }

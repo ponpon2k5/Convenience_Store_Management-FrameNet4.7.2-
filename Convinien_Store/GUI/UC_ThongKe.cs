@@ -12,9 +12,9 @@ namespace Convenience_Store_Management.GUI
         public UC_ThongKe()
         {
             InitializeComponent();
-            cbDoanhThu.Items.AddRange(new string[] { "Tuan", "Thang", "Tat ca" }); 
-            cbLoiNhuan.Items.AddRange(new string[] { "Tuan", "Thang", "Tat ca" }); 
-            cbHangHoa.Items.AddRange(new string[] { "Tuan", "Thang", "Tat ca" }); 
+            cbDoanhThu.Items.AddRange(new string[] { "Tuần", "Tháng", "Tất cả" });
+            cbLoiNhuan.Items.AddRange(new string[] { "Tuần", "Tháng", "Tất cả" });
+            cbHangHoa.Items.AddRange(new string[] { "Tuần", "Tháng", "Tất cả" });
 
             cbDoanhThu.SelectedIndex = 0;
             cbLoiNhuan.SelectedIndex = 0;
