@@ -1,11 +1,10 @@
-﻿// DAL/ConnectDB.cs
-using System;
+﻿using System;
 using System.Data;
 using Microsoft.Data.SqlClient;
 
 namespace Convenience_Store_Management.DAL
 {
-    public class ConnectDB  
+    public class ConnectDB
     {
         public readonly string strCon = "Data Source= (local);Initial Catalog=QuanLyBanHang;Integrated Security=True;TrustServerCertificate=True";
 
@@ -14,12 +13,14 @@ namespace Convenience_Store_Management.DAL
         public SqlDataAdapter da = null;
         public SqlTransaction tran = null;
 
+        // Ham khoi tao, chuan bi san doi tuong connection va command
         public ConnectDB()
         {
             conn = new SqlConnection(strCon);
             comm = conn.CreateCommand();
         }
 
+        // Mo ket noi neu dang dong
         public void OpenConnection()
         {
             try
@@ -31,14 +32,15 @@ namespace Convenience_Store_Management.DAL
             }
             catch (SqlException ex)
             {
-                throw new Exception("Lỗi khi mở kết nối cơ sở dữ liệu: " + ex.Message, ex);
+                throw new Exception("Loi khi mo cong ket noi: " + ex.Message, ex);
             }
             catch (Exception ex)
             {
-                throw new Exception("Lỗi không xác định khi mở kết nối: " + ex.Message, ex);
+                throw new Exception("Loi khong xac dinh " + ex.Message, ex);
             }
         }
 
+        // Dong ket noi neu dang mo
         public void CloseConnection()
         {
             try
@@ -50,14 +52,15 @@ namespace Convenience_Store_Management.DAL
             }
             catch (SqlException ex)
             {
-                throw new Exception("Lỗi khi đóng kết nối cơ sở dữ liệu: " + ex.Message, ex);
+                throw new Exception("Loi khi dong ket noi " + ex.Message, ex);
             }
             catch (Exception ex)
             {
-                throw new Exception("Lỗi không xác định khi đóng kết nối: " + ex.Message, ex);
+                throw new Exception("Loi khong xac dinh " + ex.Message, ex);
             }
         }
 
+        // Bat dau mot giao dich CSDL
         public void BeginTransaction()
         {
             OpenConnection();
@@ -65,6 +68,7 @@ namespace Convenience_Store_Management.DAL
             comm.Transaction = tran;
         }
 
+        // Thuc hien (commit) giao dich hien tai
         public void CommitTransaction()
         {
             if (tran != null)
@@ -75,6 +79,7 @@ namespace Convenience_Store_Management.DAL
             CloseConnection();
         }
 
+        // Huy bo (rollback) giao dich hien tai
         public void RollbackTransaction()
         {
             if (tran != null)
@@ -85,13 +90,12 @@ namespace Convenience_Store_Management.DAL
             CloseConnection();
         }
 
+        // Thuc thi truy van tra ve DataSet
         public DataSet ExecuteQueryDataSet(string strSQL, CommandType ct)
         {
-            // This method needs to handle its own connection if no transaction is active
-            // and pass the transaction if one IS active.
-            // Simplified: Always use current connection/transaction if exists, otherwise open/close.
+            // Quan ly trang thai ket noi
             bool wasClosed = conn.State == ConnectionState.Closed;
-            if (wasClosed && tran == null) // Only open if not already open for a transaction
+            if (wasClosed && tran == null)
             {
                 OpenConnection();
             }
@@ -100,11 +104,12 @@ namespace Convenience_Store_Management.DAL
             {
                 comm.CommandText = strSQL;
                 comm.CommandType = ct;
-                comm.Connection = conn; // Ensure command uses the shared connection
-                if (tran != null) // Ensure command uses the shared transaction if active
+                comm.Connection = conn;
+                if (tran != null)
                 {
                     comm.Transaction = tran;
                 }
+                // Su dung SqlDataAdapter de lay du lieu
                 da = new SqlDataAdapter(comm);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -112,24 +117,25 @@ namespace Convenience_Store_Management.DAL
             }
             catch (SqlException ex)
             {
-                throw new Exception("Lỗi truy vấn dữ liệu: " + ex.Message, ex);
+                throw new Exception("Loi truy van du lieu: " + ex.Message, ex);
             }
             finally
             {
-                if (wasClosed && tran == null) // Only close if we opened it and no transaction is active
+                // Dong ket noi
+                if (wasClosed && tran == null)
                 {
                     CloseConnection();
                 }
             }
         }
 
+        // Thuc thi lenh khong tra ve du lieu 
         public bool MyExecuteNonQuery(string strSQL, CommandType ct, ref string error)
         {
             bool f = false;
-            // The connection is expected to be open if BeginTransaction was called,
-            // otherwise, it needs to be opened for non-transactional single operations.
+            // Quan ly trang thai 
             bool wasClosed = conn.State == ConnectionState.Closed;
-            if (wasClosed && tran == null) // Only open if not already open for a transaction
+            if (wasClosed && tran == null)
             {
                 OpenConnection();
             }
@@ -138,26 +144,27 @@ namespace Convenience_Store_Management.DAL
             {
                 comm.CommandText = strSQL;
                 comm.CommandType = ct;
-                comm.Connection = conn; // Ensure command uses the shared connection
-                if (tran != null) // Ensure command uses the shared transaction if active
+                comm.Connection = conn;
+                if (tran != null)
                 {
                     comm.Transaction = tran;
                 }
+                // Thuc thi lenh
                 comm.ExecuteNonQuery();
                 f = true;
             }
             catch (SqlException ex)
             {
+                // Tra ve thong bao loi qua tham chieu
                 error = ex.Message;
             }
             catch (Exception ex)
             {
-                error = "Lỗi không xác định: " + ex.Message;
+                error = "Loi khong xac dinh: " + ex.Message;
             }
             finally
             {
-                // Only close the connection if it was originally closed and no transaction is active.
-                // If a transaction is active (tran != null), the BLL's Commit/Rollback will close it.
+                // Dong ket noi 
                 if (wasClosed && tran == null)
                 {
                     CloseConnection();

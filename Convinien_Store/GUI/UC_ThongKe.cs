@@ -14,9 +14,9 @@ namespace Convenience_Store_Management.GUI
         {
             InitializeComponent();
             // Initialize ComboBoxes
-            cbDoanhThu.Items.AddRange(new string[] { "Tuần", "Tháng" });
-            cbLoiNhuan.Items.AddRange(new string[] { "Tuần", "Tháng" });
-            cbHangHoa.Items.AddRange(new string[] { "Tuần", "Tháng" });
+            cbDoanhThu.Items.AddRange(new string[] { "Tuần", "Tháng", "Tất cả" }); // Added "Tất cả"
+            cbLoiNhuan.Items.AddRange(new string[] { "Tuần", "Tháng", "Tất cả" }); // Added "Tất cả"
+            cbHangHoa.Items.AddRange(new string[] { "Tuần", "Tháng", "Tất cả" }); // Added "Tất cả"
 
             // Set default selections
             cbDoanhThu.SelectedIndex = 0;
@@ -43,16 +43,16 @@ namespace Convenience_Store_Management.GUI
                 // Format total revenue column
                 if (dgvDoanhThu.Columns.Contains("TongDoanhThu"))
                 {
-                    dgvDoanhThu.Columns["TongDoanhThu"].HeaderText = "Tổng Doanh Thu"; // Added HeaderText
+                    dgvDoanhThu.Columns["TongDoanhThu"].HeaderText = "Tổng Doanh Thu";
                     dgvDoanhThu.Columns["TongDoanhThu"].DefaultCellStyle.Format = "N0";
                 }
                 if (dgvDoanhThu.Columns.Contains("MaHoaDonBan"))
                 {
-                    dgvDoanhThu.Columns["MaHoaDonBan"].HeaderText = "Mã Hóa Đơn Bán"; // Added HeaderText
+                    dgvDoanhThu.Columns["MaHoaDonBan"].HeaderText = "Mã Hóa Đơn Bán";
                 }
                 if (dgvDoanhThu.Columns.Contains("NgayBan"))
                 {
-                    dgvDoanhThu.Columns["NgayBan"].HeaderText = "Ngày Bán"; // Added HeaderText
+                    dgvDoanhThu.Columns["NgayBan"].HeaderText = "Ngày Bán";
                 }
             }
             else
