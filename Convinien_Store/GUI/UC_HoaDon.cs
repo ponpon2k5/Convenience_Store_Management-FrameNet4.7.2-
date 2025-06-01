@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QLBanHang_3Tang.BS_layer;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Convenience_Store_Management.Helper; // Add this using directive for SessionManager
 
 namespace Convenience_Store_Management.GUI
 {
@@ -31,6 +32,18 @@ namespace Convenience_Store_Management.GUI
             // Optional: Tạo mã hóa đơn mới ngay khi load hoặc khi thêm sản phẩm đầu tiên
             // UNCOMMENT THE FOLLOWING LINE TO AUTOMATICALLY GENERATE INVOICE ID
             txtMaHD.Text = "HD" + DateTime.Now.ToString("yyyyMMddHHmmss"); //
+
+            // Automatically fill MaNhanVien if an employee is logged in
+            if (!string.IsNullOrEmpty(SessionManager.CurrentLoggedInEmployeeId)) //
+            {
+                txtMaNV.Text = SessionManager.CurrentLoggedInEmployeeId; //
+            }
+            else //
+            {
+                // Optionally, inform the user if no employee is logged in, or disable input
+                MessageBox.Show("Không tìm thấy mã nhân viên đăng nhập. Vui lòng đăng nhập với vai trò nhân viên để tạo hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information); //
+                txtMaNV.Enabled = true; // Allow manual input if not logged in as employee
+            }
         }
 
         private void SetupInvoiceDetailsTable()
@@ -96,18 +109,18 @@ namespace Convenience_Store_Management.GUI
 
             // 3. Lấy thông tin sản phẩm từ BLHangHoa
             string error = "";
-            DataSet productInfoDs = blHangHoa.TimHangHoa(maSanPham, ref error);
+            DataSet productInfoDs = blHangHoa.TimHangHoa(maSanPham, ref error); //
 
-            if (productInfoDs == null || productInfoDs.Tables.Count == 0 || productInfoDs.Tables[0].Rows.Count == 0)
+            if (productInfoDs == null || productInfoDs.Tables.Count == 0 || productInfoDs.Tables[0].Rows.Count == 0) //
             {
-                MessageBox.Show($"Không tìm thấy sản phẩm với mã: '{maSanPham}'. Vui lòng kiểm tra lại. Lỗi: {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Không tìm thấy sản phẩm với mã: '{maSanPham}'. Vui lòng kiểm tra lại. Lỗi: {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error); //
                 return;
             }
 
-            DataRow productRow = productInfoDs.Tables[0].Rows[0];
-            string tenSP = productRow["TenSP"].ToString();
-            decimal giaBan = Convert.ToDecimal(productRow["Gia"]);
-            int soLuongTonKho = Convert.ToInt32(productRow["SoLuong"]);
+            DataRow productRow = productInfoDs.Tables[0].Rows[0]; //
+            string tenSP = productRow["TenSP"].ToString(); //
+            decimal giaBan = Convert.ToDecimal(productRow["Gia"]); //
+            int soLuongTonKho = Convert.ToInt32(productRow["SoLuong"]); //
 
             // 4. Kiểm tra số lượng tồn kho
             if (soLuong > soLuongTonKho)
@@ -185,11 +198,11 @@ namespace Convenience_Store_Management.GUI
                 // Bước 1: Thêm hóa đơn bán chính
                 // SDTKhachHang is explicitly null for employee-generated invoices via this UC.
                 string sdtKhachHang = null;
-                success = blHoaDonBan.ThemHoaDonBan(maHoaDon, maNhanVien, sdtKhachHang, ngayBan, ref error);
-                if (!success)
+                success = blHoaDonBan.ThemHoaDonBan(maHoaDon, maNhanVien, sdtKhachHang, ngayBan, ref error); //
+                if (!success) //
                 {
-                    blHoaDonBan.db.RollbackTransaction();
-                    MessageBox.Show($"Hoàn tất hóa đơn thất bại (Thêm HĐB): {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    blHoaDonBan.db.RollbackTransaction(); //
+                    MessageBox.Show($"Hoàn tất hóa đơn thất bại (Thêm HĐB): {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error); //
                     return;
                 }
 
@@ -202,34 +215,34 @@ namespace Convenience_Store_Management.GUI
                     decimal itemThanhTien = row.Field<decimal>("ThanhTien");
 
                     // Thêm chi tiết bán
-                    success = blHoaDonBan.ThemChiTietBan(maHoaDon, itemMaSP, itemSoLuong, itemGiaBan, itemThanhTien, ref error);
-                    if (!success)
+                    success = blHoaDonBan.ThemChiTietBan(maHoaDon, itemMaSP, itemSoLuong, itemGiaBan, itemThanhTien, ref error); //
+                    if (!success) //
                     {
-                        blHoaDonBan.db.RollbackTransaction();
-                        MessageBox.Show($"Hoàn tất hóa đơn thất bại (Thêm CTB cho SP {itemMaSP}): {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        blHoaDonBan.db.RollbackTransaction(); //
+                        MessageBox.Show($"Hoàn tất hóa đơn thất bại (Thêm CTB cho SP {itemMaSP}): {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error); //
                         return;
                     }
 
                     // Cập nhật số lượng hàng hóa (giảm tồn kho)
-                    success = blHoaDonBan.CapNhatSoLuongHangHoa(itemMaSP, -itemSoLuong, ref error);
-                    if (!success)
+                    success = blHoaDonBan.CapNhatSoLuongHangHoa(itemMaSP, -itemSoLuong, ref error); //
+                    if (!success) //
                     {
-                        blHoaDonBan.db.RollbackTransaction();
-                        MessageBox.Show($"Hoàn tất hóa đơn thất bại (Cập nhật tồn kho SP {itemMaSP}): {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        blHoaDonBan.db.RollbackTransaction(); //
+                        MessageBox.Show($"Hoàn tất hóa đơn thất bại (Cập nhật tồn kho SP {itemMaSP}): {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error); //
                         return;
                     }
                 }
 
                 // Nếu tất cả thành công, commit giao dịch
-                blHoaDonBan.db.CommitTransaction();
-                MessageBox.Show("Hoàn tất hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                blHoaDonBan.db.CommitTransaction(); //
+                MessageBox.Show("Hoàn tất hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information); //
 
                 // Sau khi hoàn tất, xóa dữ liệu trên UI và làm mới bảng tạm
                 ClearInvoiceData();
             }
             catch (Exception ex)
             {
-                blHoaDonBan.db.RollbackTransaction();
+                blHoaDonBan.db.RollbackTransaction(); //
                 MessageBox.Show($"Đã xảy ra lỗi không mong muốn trong quá trình hoàn tất hóa đơn: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
