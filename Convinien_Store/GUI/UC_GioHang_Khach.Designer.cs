@@ -88,7 +88,7 @@ namespace Convenience_Store_Management.GUI
             // 
             this.TongTien_label.AutoSize = true;
             this.TongTien_label.Font = new System.Drawing.Font("Sans Serif Collection", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TongTien_label.Location = new System.Drawing.Point(355, 11);
+            this.TongTien_label.Location = new System.Drawing.Point(255, 12);
             this.TongTien_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TongTien_label.Name = "TongTien_label";
             this.TongTien_label.Size = new System.Drawing.Size(96, 54);

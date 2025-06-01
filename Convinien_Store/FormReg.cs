@@ -1,8 +1,7 @@
-﻿// FormReg.cs
-using System;
+﻿using System;
 using System.Windows.Forms;
 using QLBanHang_3Tang.BS_layer;
-using System.Linq; // Added for .All(char.IsDigit)
+using System.Linq;
 
 namespace Convenience_Store_Management
 {
@@ -53,7 +52,7 @@ namespace Convenience_Store_Management
             }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e) // This is your "Sign up" button
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtAccount.Text.Trim();
             string password = txtPwd.Text.Trim();
@@ -76,21 +75,18 @@ namespace Convenience_Store_Management
                 return;
             }
 
-            // Validate basic inputs
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Vui lòng nhập tên đăng nhập và mật khẩu.", "Lỗi Đăng Ký", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Add password length validation
-            if (password.Length < 7) //
+            if (password.Length < 7)
             {
                 MessageBox.Show("Mật khẩu phải có ít nhất 7 ký tự.", "Lỗi Đăng Ký", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Validate identifier field(s) based on role
             if (userRole == "Employee")
             {
                 if (string.IsNullOrEmpty(manv_text.Text.Trim()))
@@ -103,7 +99,6 @@ namespace Convenience_Store_Management
                     MessageBox.Show("Vui lòng nhập SĐT của nhân viên.", "Lỗi Đăng Ký", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                // Validate phone number length for employee
                 if (sdt_text.Text.Trim().Length != 10 || !sdt_text.Text.Trim().All(char.IsDigit))
                 {
                     MessageBox.Show("Số điện thoại nhân viên phải có đúng 10 chữ số và chỉ chứa số.", "Lỗi Đăng Ký", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -118,7 +113,6 @@ namespace Convenience_Store_Management
                     MessageBox.Show("Vui lòng nhập SĐT của khách hàng.", "Lỗi Đăng Ký", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                // Validate phone number length for customer
                 if (sdt_text.Text.Trim().Length != 10 || !sdt_text.Text.Trim().All(char.IsDigit))
                 {
                     MessageBox.Show("Số điện thoại khách hàng phải có đúng 10 chữ số và chỉ chứa số.", "Lỗi Đăng Ký", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -127,7 +121,6 @@ namespace Convenience_Store_Management
                 identifier = sdt_text.Text.Trim();
             }
 
-            // Check if username already exists to prevent duplicate registrations
             if (blTaiKhoan.KiemTraTonTaiTenDangNhap(username, ref error))
             {
                 MessageBox.Show("Tên đăng nhập đã tồn tại. Vui lòng chọn tên khác.", "Lỗi Đăng Ký", MessageBoxButtons.OK, MessageBoxIcon.Warning);

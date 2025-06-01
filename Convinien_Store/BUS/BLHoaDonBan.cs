@@ -85,22 +85,21 @@ namespace QLBanHang_3Tang.BS_layer
                         db.RollbackTransaction();
                         return false;
                     }
-                    totalBillAmount += thanhTien; // Tinh tong tien hoa don, hien chua su dung gia tri nay
+                    totalBillAmount += thanhTien; // Tinh tong tien hoa don
                 }
 
-                db.CommitTransaction(); // Xac nhan toan bo giao dich neu moi thu thanh cong
+                db.CommitTransaction(); // Xac nhan 
                 return true;
             }
             catch (Exception ex)
             {
-                db.RollbackTransaction(); // Huy giao dich neu co loi ngoai le
+                db.RollbackTransaction(); 
                 error = "Loi giao dich ban hang: " + ex.Message;
                 return false;
             }
         }
 
         // Lay MaSanPham tu TenSP (tuong tu BLHangHoa)
-        // CHU Y: Co nguy co SQL Injection
         public string LayMaSanPhamTuTen(string tenSP, ref string error)
         {
             string sql = $"SELECT MaSanPham FROM HANG_HOA WHERE TenSP = N'{tenSP.Replace("'", "''")}'";
@@ -122,7 +121,6 @@ namespace QLBanHang_3Tang.BS_layer
         }
 
         // Lay GiaBan tu MaSanPham (tuong tu BLHangHoa)
-        // CHU Y: Co nguy co SQL Injection
         public decimal? LayGiaBan(string maSP, ref string error)
         {
             string sql = $"SELECT Gia FROM HANG_HOA WHERE MaSanPham = '{maSP.Replace("'", "''")}'";
@@ -144,7 +142,6 @@ namespace QLBanHang_3Tang.BS_layer
         }
 
         // Lay chi tiet cua mot hoa don ban cu the (join cac bang)
-        // CHU Y: Co nguy co SQL Injection
         public DataSet LayChiTietHoaDon(string maHoaDonBan, ref string error)
         {
             string sql = $"SELECT HDB.MaHoaDonBan, HDB.NgayBan, HDB.MaNhanVien, HDB.SDTKhachHang, " +
@@ -164,7 +161,7 @@ namespace QLBanHang_3Tang.BS_layer
             }
         }
 
-        // Lay tat ca chi tiet cua tat ca hoa don (join cac bang)
+        // Lay tat ca chi tiet cua tat ca hoa don
         public DataSet LayTatCaChiTietHoaDon(ref string error)
         {
             string sql = $"SELECT HDB.MaHoaDonBan, HDB.NgayBan, HDB.MaNhanVien, HDB.SDTKhachHang, " +
@@ -184,10 +181,10 @@ namespace QLBanHang_3Tang.BS_layer
             }
         }
 
-        // Lay thong ke doanh thu theo tuan, thang hoac tat ca
+        // Lay thong ke doanh thu
         public DataSet LayDoanhThu(string filterType, ref string error)
         {
-            string dateFilter = ""; // Dieu kien loc theo ngay
+            string dateFilter = ""; // Dieu kien loc 
             DateTime now = DateTime.Now;
 
             // Xac dinh khoang thoi gian loc
@@ -203,7 +200,6 @@ namespace QLBanHang_3Tang.BS_layer
                 DateTime endOfMonth = startOfMonth.AddMonths(1);
                 dateFilter = $"WHERE NgayBan >= '{startOfMonth.ToString("yyyy-MM-dd")}' AND NgayBan < '{endOfMonth.ToString("yyyy-MM-dd")}'";
             }
-            // Neu filterType la "Tất cả" thi dateFilter se rong (khong loc theo ngay)
 
             // Cau SQL tinh tong doanh thu theo hoa don, loc theo ngay
             string sql = $"SELECT HDB.MaHoaDonBan, HDB.NgayBan, SUM(CTB.ThanhTien) AS TongDoanhThu " +
@@ -223,7 +219,7 @@ namespace QLBanHang_3Tang.BS_layer
         // Lay thong ke loi nhuan theo tuan, thang hoac tat ca
         public DataSet LayLoiNhuan(string filterType, ref string error)
         {
-            string dateFilter = ""; // Dieu kien loc theo ngay
+            string dateFilter = ""; 
             DateTime now = DateTime.Now;
 
             // Xac dinh khoang thoi gian loc
@@ -240,12 +236,11 @@ namespace QLBanHang_3Tang.BS_layer
                 dateFilter = $"WHERE HDB.NgayBan >= '{startOfMonth.ToString("yyyy-MM-dd")}' AND HDB.NgayBan < '{endOfMonth.ToString("yyyy-MM-dd")}'";
             }
 
-            // Cau SQL tinh tong loi nhuan (GiaBan - GiaNhap) * SoLuong
             string sql = $"SELECT HDB.MaHoaDonBan, HDB.NgayBan, " +
                          $"SUM(CTB.SoLuong * (CTB.GiaBan - HH.GiaNhap)) AS TongLoiNhuan " +
                          $"FROM HOA_DON_BAN AS HDB " +
                          $"JOIN CHI_TIET_BAN AS CTB ON HDB.MaHoaDonBan = CTB.MaHoaDonBan " +
-                         $"JOIN HANG_HOA AS HH ON CTB.MaSanPham = HH.MaSanPham " + // Join de lay GiaNhap
+                         $"JOIN HANG_HOA AS HH ON CTB.MaSanPham = HH.MaSanPham " + 
                          $"{dateFilter} GROUP BY HDB.MaHoaDonBan, HDB.NgayBan ORDER BY HDB.NgayBan DESC";
             try
             {
@@ -261,7 +256,7 @@ namespace QLBanHang_3Tang.BS_layer
         // Lay thong ke cac mat hang da ban theo so luong va thanh tien
         public DataSet LayCacMatHangDaBan(string filterType, ref string error)
         {
-            string dateFilter = ""; // Dieu kien loc theo ngay
+            string dateFilter = "";
             DateTime now = DateTime.Now;
 
             // Xac dinh khoang thoi gian loc
@@ -278,10 +273,10 @@ namespace QLBanHang_3Tang.BS_layer
                 dateFilter = $"WHERE HDB.NgayBan >= '{startOfMonth.ToString("yyyy-MM-dd")}' AND HDB.NgayBan < '{endOfMonth.ToString("yyyy-MM-dd")}'";
             }
 
-            // Cau SQL tinh tong so luong ban va tong thanh tien theo tung san pham
+            // tong so luong ban va tong thanh tien theo tung san pham
             string sql = $"SELECT HH.MaSanPham, HH.TenSP, SUM(CTB.SoLuong) AS TongSoLuongDaBan, SUM(CTB.ThanhTien) AS TongThanhTien " +
                          $"FROM CHI_TIET_BAN AS CTB JOIN HANG_HOA AS HH ON CTB.MaSanPham = HH.MaSanPham " +
-                         $"JOIN HOA_DON_BAN AS HDB ON CTB.MaHoaDonBan = HDB.MaHoaDonBan " + // Join de loc theo NgayBan
+                         $"JOIN HOA_DON_BAN AS HDB ON CTB.MaHoaDonBan = HDB.MaHoaDonBan " + 
                          $"{dateFilter} GROUP BY HH.MaSanPham, HH.TenSP ORDER BY TongSoLuongDaBan DESC";
             try
             {
@@ -294,8 +289,7 @@ namespace QLBanHang_3Tang.BS_layer
             }
         }
 
-        // Tim kiem hoa don theo MaHoaDonBan (su dung LIKE)
-        // CHU Y: Co nguy co SQL Injection
+        // Tim kiem hoa don theo MaHoaDonBan 
         public DataSet TimHoaDon(string maHoaDonBan, ref string error)
         {
             string sql = $"SELECT HDB.MaHoaDonBan, HDB.MaNhanVien, HDB.SDTKhachHang, HDB.NgayBan, SUM(CTB.ThanhTien) AS TongCong " +

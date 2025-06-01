@@ -1,84 +1,72 @@
-﻿// Convinien_Store/FormViewSalesInvoice.cs
+﻿
 using System;
 using System.Data;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
-using QLBanHang_3Tang.BS_layer;
+using QLBanHang_3Tang.BS_layer; 
 
-namespace Convinien_Store
+namespace Convinien_Store 
 {
     public partial class FormViewSalesInvoice : Form
     {
-        private BLHoaDonBan blHoaDonBan = new BLHoaDonBan();
-        private string _maHoaDonBan; // Giữ lại cho trường hợp xem hóa đơn cụ thể
+        private BLHoaDonBan blHoaDonBan = new BLHoaDonBan(); 
+        private string _maHoaDonBan; 
 
-        // Constructor cũ: Dùng để xem một hóa đơn cụ thể
+        // Xem mot hoa don cu the
         public FormViewSalesInvoice(string maHoaDonBan)
         {
             InitializeComponent();
-            _maHoaDonBan = maHoaDonBan;
+            _maHoaDonBan = maHoaDonBan; // Luu lai ma hoa don can xem
         }
 
-        // Constructor mới: Dùng để xem tất cả hóa đơn
+        //  xem TAT CA hoa don
         public FormViewSalesInvoice()
         {
             InitializeComponent();
-            _maHoaDonBan = null; // Đặt là null để biểu thị rằng chúng ta muốn lấy tất cả hóa đơn
+            _maHoaDonBan = null; // Dat la null de biet la can lay tat ca hoa don
         }
 
         private void FormViewReports_Load(object sender, EventArgs e)
         {
             try
             {
+                // Xoa cac nguon du lieu cu cua ReportViewer (neu co)
                 this.reportViewer1.LocalReport.DataSources.Clear();
 
-                string error = "";
+                string error = ""; 
                 DataSet dsReportData = null;
 
-                // Logic để quyết định lấy hóa đơn cụ thể hay tất cả hóa đơn
-                if (string.IsNullOrEmpty(_maHoaDonBan))
+                if (string.IsNullOrEmpty(_maHoaDonBan)) // xem tat ca
                 {
-                    // Trường hợp xem tất cả hóa đơn
-                    MessageBox.Show($"Đang cố gắng tải báo cáo cho TẤT CẢ hóa đơn.", "Thông tin gỡ lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dsReportData = blHoaDonBan.LayTatCaChiTietHoaDon(ref error); // Gọi phương thức mới để lấy tất cả
+                    dsReportData = blHoaDonBan.LayTatCaChiTietHoaDon(ref error); 
                 }
-                else
+                else 
                 {
-                    // Trường hợp xem hóa đơn cụ thể
-                    MessageBox.Show($"Đang cố gắng tải báo cáo cho MaHoaDonBan: '{_maHoaDonBan}'", "Thông tin gỡ lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dsReportData = blHoaDonBan.LayChiTietHoaDon(_maHoaDonBan, ref error);
                 }
 
-
+                // Kiem tra xem co du lieu de hien thi khong
                 if (dsReportData != null && dsReportData.Tables.Count > 0 && dsReportData.Tables[0].Rows.Count > 0)
                 {
-                    MessageBox.Show($"Tìm thấy {dsReportData.Tables[0].Rows.Count} hàng dữ liệu cho báo cáo.", "Thông tin gỡ lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // "DataTable1" phải khớp với tên của dataset trong tệp .rdlc của bạn.
                     ReportDataSource rds = new ReportDataSource("DataTable1", dsReportData.Tables[0]);
-                    this.reportViewer1.LocalReport.DataSources.Add(rds);
+                    this.reportViewer1.LocalReport.DataSources.Add(rds); // Them nguon du lieu vao ReportViewer
                 }
                 else
                 {
-                    // Thêm chi tiết lỗi vào thông báo nếu không có dữ liệu
-                    MessageBox.Show($"Không có dữ liệu để hiển thị báo cáo. Lỗi chi tiết: {error}", "Lỗi Tải Báo Cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    MessageBox.Show($"Khong co du lieu de hien thi bao cao Loi chi tiet: {error}", "Loi Tai Bao Cao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return; 
                 }
 
-                // Đảm bảo "Build Action" của tệp .rdlc của bạn được đặt thành "Embedded Resource".
-                // CẬP NHẬT TÊN TỆP RDLC ĐÃ ĐỔI TÊN Ở ĐÂY
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = "Convinien_Store.ReportSalesInvoice.rdlc"; // Đã sửa tên file .rdlc
+                this.reportViewer1.LocalReport.ReportEmbeddedResource = "Convinien_Store.ReportSalesInvoice.rdlc"; 
 
-                // <<-- THÊM CÁC DÒNG NÀY ĐỂ TỐI ƯU HIỂN THỊ
-                this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout); // Chế độ bố cục in
-                this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth; // Tự động zoom theo chiều rộng trang
-                // <<-- KẾT THÚC CÁC DÒNG MỚI
+                this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout); // Chuyen sang che do xem bo cuc in
+                this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth; // Tu dong dieu chinh zoom theo chieu rong trang
 
                 this.reportViewer1.RefreshReport();
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
-                MessageBox.Show("Đã xảy ra lỗi khi tải báo cáo: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Da xay ra loi khi tai bao cao: " + ex.Message, "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

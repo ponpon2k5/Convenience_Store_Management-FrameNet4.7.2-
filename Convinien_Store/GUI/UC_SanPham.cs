@@ -1,10 +1,8 @@
-﻿// GUI/UC_SanPham.cs
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +12,7 @@ namespace Convenience_Store_Management.GUI
 {
     public partial class UC_SanPham : UserControl
     {
-        private BLHangHoa blHangHoa = new BLHangHoa();
+        private BLHangHoa blHangHoa = new BLHangHoa(); 
 
         public UC_SanPham()
         {
@@ -23,30 +21,28 @@ namespace Convenience_Store_Management.GUI
 
         private void UC_SanPham_Load(object sender, EventArgs e)
         {
-            LoadHangHoaData();
+            LoadHangHoaData(); 
         }
 
+        // Phuong thuc tai va hien thi du lieu hang hoa (chi cac san pham dang kinh doanh - IsActive=1)
         public void LoadHangHoaData()
         {
             try
             {
-                // Now, LayHangHoa() only returns active products.
-                DataSet ds = blHangHoa.LayHangHoa(); //
-                dataGridView1.DataSource = ds.Tables[0];
+                DataSet ds = blHangHoa.LayHangHoa();
+                dataGridView1.DataSource = ds.Tables[0]; 
 
-                // Đặt header text cho DataGridView
                 if (dataGridView1.Columns.Contains("MaSanPham"))
-                    dataGridView1.Columns["MaSanPham"].HeaderText = "Mã Sản Phẩm";
+                    dataGridView1.Columns["MaSanPham"].HeaderText = "Ma San Pham";
                 if (dataGridView1.Columns.Contains("TenSP"))
-                    dataGridView1.Columns["TenSP"].HeaderText = "Tên Sản Phẩm";
+                    dataGridView1.Columns["TenSP"].HeaderText = "Ten San Pham";
                 if (dataGridView1.Columns.Contains("SoLuong"))
-                    dataGridView1.Columns["SoLuong"].HeaderText = "Số Lượng Tồn";
+                    dataGridView1.Columns["SoLuong"].HeaderText = "So Luong Ton";
                 if (dataGridView1.Columns.Contains("Gia"))
-                    dataGridView1.Columns["Gia"].HeaderText = "Giá Bán"; // Updated header text
+                    dataGridView1.Columns["Gia"].HeaderText = "Gia Ban"; 
                 if (dataGridView1.Columns.Contains("GiaNhap"))
-                    dataGridView1.Columns["GiaNhap"].HeaderText = "Giá Nhập"; // Updated header text
+                    dataGridView1.Columns["GiaNhap"].HeaderText = "Gia Nhap"; 
 
-                // Định dạng cột Giá và Giá Nhập
                 if (dataGridView1.Columns.Contains("Gia"))
                 {
                     dataGridView1.Columns["Gia"].DefaultCellStyle.Format = "N0";
@@ -55,118 +51,119 @@ namespace Convenience_Store_Management.GUI
                 {
                     dataGridView1.Columns["GiaNhap"].DefaultCellStyle.Format = "N0";
                 }
-                // Hide IsActive column if it exists and is not needed for display
+                // An cot IsActive neu co 
                 if (dataGridView1.Columns.Contains("IsActive"))
                 {
                     dataGridView1.Columns["IsActive"].Visible = false;
                 }
 
-                // Chặn người dùng chỉnh sửa trực tiếp trên DataGridView
                 dataGridView1.ReadOnly = true;
-                dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.AllowUserToAddRows = false; 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Loi khi tai du lieu san pham: " + ex.Message, "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra xem có phải là hàng dữ liệu hợp lệ không (không phải header hay hàng trống)
+            // Kiem tra xem co phai la hang du lieu hop le khong
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                txtMaHHXoa.Text = row.Cells["MaSanPham"].Value.ToString();
+                txtMaHHXoa.Text = row.Cells["MaSanPham"].Value.ToString(); 
             }
         }
 
         private void btnThemHH_Click(object sender, EventArgs e)
         {
+            // Lay thong tin 
             string maSanPham = txtMaHHThem.Text.Trim();
             string tenSP = txtTenHH.Text.Trim();
             string soLuongStr = txtSoLuong.Text.Trim();
-            string giaStr = txtGiaBan.Text.Trim();
-            string giaNhapStr = txtGiaNhap.Text.Trim(); // NEW: Get GiaNhap from textbox
+            string giaStr = txtGiaBan.Text.Trim(); 
+            string giaNhapStr = txtGiaNhap.Text.Trim(); 
 
+            // Kiem tra thong tin nhap vao co day du khong
             if (string.IsNullOrEmpty(maSanPham) || string.IsNullOrEmpty(tenSP) ||
                 string.IsNullOrEmpty(soLuongStr) || string.IsNullOrEmpty(giaStr) ||
-                string.IsNullOrEmpty(giaNhapStr)) // NEW: Validate GiaNhap input
+                string.IsNullOrEmpty(giaNhapStr))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin sản phẩm (Mã, Tên, Số lượng, Giá bán, Giá nhập).", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui long nhap day du thong tin san pham (Ma Ten So luong Gia ban Gia nhap)", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             int soLuong;
             if (!int.TryParse(soLuongStr, out soLuong) || soLuong < 0)
             {
-                MessageBox.Show("Số lượng phải là một số nguyên không âm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("So luong phai la mot so nguyen khong am", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            decimal gia; // This is selling price
+            decimal gia; 
             if (!decimal.TryParse(giaStr, out gia) || gia <= 0)
             {
-                MessageBox.Show("Giá bán phải là một số dương.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gia ban phai la mot so duong", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            decimal giaNhap; // This is import price
-            if (!decimal.TryParse(giaNhapStr, out giaNhap) || giaNhap < 0) // GiaNhap can be 0 or positive
+            decimal giaNhap;
+            if (!decimal.TryParse(giaNhapStr, out giaNhap) || giaNhap < 0)
             {
-                MessageBox.Show("Giá nhập phải là một số không âm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gia nhap phai la mot so khong am", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
 
             string error = "";
             bool success = false;
 
-            blHangHoa.db.BeginTransaction();
+            blHangHoa.db.BeginTransaction(); 
             try
             {
-                // Call ThemHangHoa with 6 arguments (added giaNhap and IsActive implicitly set to 1)
-                success = blHangHoa.ThemHangHoa(maSanPham, tenSP, soLuong, gia, giaNhap, ref error); //
+                success = blHangHoa.ThemHangHoa(maSanPham, tenSP, soLuong, gia, giaNhap, ref error);
 
                 if (success)
                 {
                     blHangHoa.db.CommitTransaction();
-                    MessageBox.Show("Thêm hàng hóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Them hang hoa thanh cong", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Clear input fields
+                    
                     txtMaHHThem.Clear();
                     txtTenHH.Clear();
                     txtSoLuong.Clear();
                     txtGiaBan.Clear();
                     txtGiaNhap.Clear();
-                    LoadHangHoaData(); // Refresh DataGridView after adding
+                    LoadHangHoaData(); 
                 }
                 else
                 {
-                    blHangHoa.db.RollbackTransaction();
-                    MessageBox.Show($"Thêm hàng hóa thất bại: {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    blHangHoa.db.RollbackTransaction(); 
+                    MessageBox.Show($"Them hang hoa that bai: {error}", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                blHangHoa.db.RollbackTransaction();
-                MessageBox.Show($"Đã xảy ra lỗi không mong muốn trong quá trình thêm hàng hóa: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                blHangHoa.db.RollbackTransaction(); 
+                MessageBox.Show($"Da xay ra loi khong mong muon trong qua trinh them hang hoa: {ex.Message}", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // btnXoaHH_Click now performs soft delete
+        //  (Thuc hien xoa mem - soft delete)
         private void btnXoaHH_Click(object sender, EventArgs e)
         {
-            string maSanPhamXoa = txtMaHHXoa.Text.Trim();
+            string maSanPhamXoa = txtMaHHXoa.Text.Trim(); // Lay MaSanPham tu TextBox
 
+            // Kiem tra MaSanPham co duoc nhap khong
             if (string.IsNullOrEmpty(maSanPhamXoa))
             {
-                MessageBox.Show("Vui lòng nhập Mã hàng hóa cần xóa hoặc chọn từ danh sách.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui long nhap Ma hang hoa can xoa hoac chon tu danh sach", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa hàng hóa có mã '{maSanPhamXoa}'? (Thao tác này sẽ ẩn sản phẩm khỏi danh sách)",
-                                                 "Xác nhận Xóa Mềm", // Changed confirmation message
+            // Hien thi hop thoai xac nhan truoc khi xoa mem
+            var confirmResult = MessageBox.Show($"Ban co chac chan muon xoa hang hoa co ma '{maSanPhamXoa}' (Thao tac nay se an san pham khoi danh sach)",
+                                                 "Xac nhan Xoa Mem", 
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Question);
 
@@ -178,33 +175,32 @@ namespace Convenience_Store_Management.GUI
                 blHangHoa.db.BeginTransaction();
                 try
                 {
-                    // Call the modified XoaHangHoa for soft delete
-                    success = blHangHoa.XoaHangHoa(maSanPhamXoa, ref error); //
+                    success = blHangHoa.XoaHangHoa(maSanPhamXoa, ref error);
 
                     if (success)
                     {
-                        blHangHoa.db.CommitTransaction();
-                        MessageBox.Show("Xóa mềm hàng hóa thành công! Sản phẩm đã được ẩn khỏi danh sách.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtMaHHXoa.Clear();
-                        LoadHangHoaData(); // Refresh DataGridView after soft deletion
+                        blHangHoa.db.CommitTransaction(); 
+                        MessageBox.Show("Xoa mem hang hoa thanh cong San pham da duoc an khoi danh sach", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtMaHHXoa.Clear(); 
+                        LoadHangHoaData();
                     }
                     else
                     {
-                        blHangHoa.db.RollbackTransaction();
-                        MessageBox.Show($"Xóa mềm hàng hóa thất bại: {error}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        blHangHoa.db.RollbackTransaction(); 
+                        MessageBox.Show($"Xoa mem hang hoa that bai: {error}", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
                 {
-                    blHangHoa.db.RollbackTransaction();
-                    MessageBox.Show($"Đã xảy ra lỗi không mong muốn trong quá trình xóa mềm hàng hóa: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    blHangHoa.db.RollbackTransaction(); 
+                    MessageBox.Show($"Da xay ra loi khong mong muon trong qua trinh xoa mem hang hoa: {ex.Message}", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void txtTenHH_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

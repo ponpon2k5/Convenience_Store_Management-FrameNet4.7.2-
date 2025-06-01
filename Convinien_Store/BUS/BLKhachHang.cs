@@ -1,4 +1,4 @@
-﻿// BUS/BLKhachHang.cs
+﻿
 using System;
 using System.Data;
 using Convenience_Store_Management.DAL;
@@ -7,14 +7,14 @@ namespace QLBanHang_3Tang.BS_layer
 {
     public class BLKhachHang
     {
-        public ConnectDB db; // Made public for direct transaction management if needed
+        public ConnectDB db;
 
         public BLKhachHang()
         {
             db = new ConnectDB();
         }
 
-        // NEW: LayKhachHang (Get all customers) - general method
+        // Lay danh sach tat ca khach hang
         public DataSet LayKhachHang(ref string error)
         {
             string sql = "SELECT SDT, TenKH, NgaySinh FROM KHACH_HANG";
@@ -24,15 +24,16 @@ namespace QLBanHang_3Tang.BS_layer
             }
             catch (Exception ex)
             {
+                // Gan loi vao bien tham chieu
                 error = ex.Message;
                 return null;
             }
         }
 
-        // NEW: TimKhachHang (Search Customer by SDT)
+        // Tim kiem khach hang theo sdt
         public DataSet TimKhachHang(string sdt, ref string error)
         {
-            // SQL Injection Vulnerability!
+            // Xu ly SDT de tranh SQL Injection don gian
             string sql = $"SELECT SDT, TenKH, NgaySinh FROM KHACH_HANG WHERE SDT LIKE '%{sdt.Replace("'", "''")}%'";
             try
             {

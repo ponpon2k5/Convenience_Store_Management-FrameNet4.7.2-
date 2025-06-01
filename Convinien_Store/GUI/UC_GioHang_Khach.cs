@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq; // Cần thiết cho FirstOrDefault, AsEnumerable
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,69 +11,86 @@ using Convenience_Store_Management.Helper;
 
 namespace Convenience_Store_Management.GUI
 {
-    public partial class UC_GioHang_Khach : UserControl
+    public partial class UC_GioHang_Khach : UserControl 
     {
-        // Sử dụng DataTable để lưu trữ giỏ hàng trong bộ nhớ
         private DataTable cartTable = new DataTable();
         private BLHangHoa blHangHoa = new BLHangHoa();
         private BLHoaDonBan blHoaDonBan = new BLHoaDonBan();
 
+        // Ham khoi tao UserControl
         public UC_GioHang_Khach()
         {
             InitializeComponent();
-            SetupCartTable();    // Khởi tạo cấu trúc DataTable
-            // RefreshCartDisplay(); // Không cần gọi ở đây vì SetupCartTable đã gán DataSource
+            SetupCartTable();      
+            UpdateTongTienLabel(); // Cap nhat tong tien ban dau (0 VND)
         }
 
+        // Thiet lap cau truc cho DataTable
         private void SetupCartTable()
         {
-            // Định nghĩa các cột cho DataTable giống như bạn muốn hiển thị trên DataGridView
+            // Dinh nghia cac cot cho DataTable cua gio hang
             cartTable.Columns.Add("MaSanPham", typeof(string));
             cartTable.Columns.Add("TenSP", typeof(string));
             cartTable.Columns.Add("Gia", typeof(decimal));
             cartTable.Columns.Add("SoLuong", typeof(int));
-            cartTable.Columns.Add("ThanhTien", typeof(decimal)); // Cột tính toán
+            cartTable.Columns.Add("ThanhTien", typeof(decimal)); 
 
-            // Gán DataTable làm nguồn dữ liệu cho DataGridView
             dgvGioHang.DataSource = cartTable;
 
-            // Thiết lập header text và định dạng cho DataGridView
-            dgvGioHang.AutoGenerateColumns = false; // Tắt tự động tạo cột để tự kiểm soát
+            dgvGioHang.AutoGenerateColumns = false; // Tat tu dong tao cot
 
-            // Kiểm tra và thêm cột nếu chưa có (để tránh lỗi nếu Designer đã tạo sẵn)
-            if (!dgvGioHang.Columns.Contains("MaSanPham")) dgvGioHang.Columns.Add("MaSanPham", "Mã SP");
+            // Them va cau hinh tung cot (MaSanPham, TenSP, Gia, SoLuong, ThanhTien)
+            if (!dgvGioHang.Columns.Contains("MaSanPham")) dgvGioHang.Columns.Add("MaSanPham", "Ma SP");
             dgvGioHang.Columns["MaSanPham"].DataPropertyName = "MaSanPham";
 
-            if (!dgvGioHang.Columns.Contains("TenSP")) dgvGioHang.Columns.Add("TenSP", "Tên Sản Phẩm");
+            if (!dgvGioHang.Columns.Contains("TenSP")) dgvGioHang.Columns.Add("TenSP", "Ten San Pham");
             dgvGioHang.Columns["TenSP"].DataPropertyName = "TenSP";
 
-            if (!dgvGioHang.Columns.Contains("Gia")) dgvGioHang.Columns.Add("Gia", "Giá");
+            if (!dgvGioHang.Columns.Contains("Gia")) dgvGioHang.Columns.Add("Gia", "Gia");
             dgvGioHang.Columns["Gia"].DataPropertyName = "Gia";
             dgvGioHang.Columns["Gia"].DefaultCellStyle.Format = "N0";
 
-            if (!dgvGioHang.Columns.Contains("SoLuong")) dgvGioHang.Columns.Add("SoLuong", "Số Lượng");
+            if (!dgvGioHang.Columns.Contains("SoLuong")) dgvGioHang.Columns.Add("SoLuong", "So Luong");
             dgvGioHang.Columns["SoLuong"].DataPropertyName = "SoLuong";
 
-            if (!dgvGioHang.Columns.Contains("ThanhTien")) dgvGioHang.Columns.Add("ThanhTien", "Thành Tiền");
+            if (!dgvGioHang.Columns.Contains("ThanhTien")) dgvGioHang.Columns.Add("ThanhTien", "Thanh Tien");
             dgvGioHang.Columns["ThanhTien"].DataPropertyName = "ThanhTien";
             dgvGioHang.Columns["ThanhTien"].DefaultCellStyle.Format = "N0";
 
-            // Chặn người dùng chỉnh sửa trực tiếp trên DataGridView
+            // Ngan chinh sua truc tiep
             dgvGioHang.ReadOnly = true;
             dgvGioHang.AllowUserToAddRows = false;
         }
 
-        // Phương thức này sẽ được gọi từ UC_HangHoa_Khach khi một sản phẩm được thêm vào
+        // Tinh toan va cap nhat Label hien thi tong tien cua gio hang
+        private void UpdateTongTienLabel()
+        {
+            decimal tongTien = 0;
+            // Duyet qua tung hang trong cartTable
+            foreach (DataRow row in cartTable.Rows)
+            {
+                tongTien += row.Field<decimal>("ThanhTien");
+            }
+            TongTien_label.Text = $"Tong tien: {tongTien:N0} VND";
+        }
+
         public void AddItemToCart(object sender, string maSanPham, string tenSP, int soLuong, decimal gia)
         {
-            // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa bằng LINQ
-            DataRow existingRow = cartTable.AsEnumerable()
-                                           .FirstOrDefault(row => row.Field<string>("MaSanPham") == maSanPham);
+            DataRow existingRow = null;
+
+            foreach (DataRow row in cartTable.Rows)
+            {
+                if (row.Field<string>("MaSanPham") == maSanPham) 
+                {
+                    existingRow = row;
+                    break; //neu tim thay thi thoat khoi vong lap
+                }
+            }
 
             if (existingRow != null)
             {
-                // Nếu có rồi, tăng số lượng và cập nhật thành tiền
-                int currentSoLuong = existingRow.Field<int>("SoLuong");
+                // San pham da co: Tang so luong va cap nhat lai ThanhTien
+                int currentSoLuong = existingRow.Field<int>("SoLuong"); 
                 decimal currentGia = existingRow.Field<decimal>("Gia");
 
                 existingRow["SoLuong"] = currentSoLuong + soLuong;
@@ -82,7 +98,7 @@ namespace Convenience_Store_Management.GUI
             }
             else
             {
-                // Nếu chưa có, thêm hàng mới vào DataTable
+                // San pham chua co: Them hang moi vao DataTable
                 DataRow newRow = cartTable.NewRow();
                 newRow["MaSanPham"] = maSanPham;
                 newRow["TenSP"] = tenSP;
@@ -91,85 +107,72 @@ namespace Convenience_Store_Management.GUI
                 newRow["ThanhTien"] = soLuong * gia;
                 cartTable.Rows.Add(newRow);
             }
-            // Không cần gọi Refresh() cho DataGridView nếu DataSource là DataTable
-            // DataTable tự động cập nhật khi thay đổi dữ liệu bên trong.
-            // dgvGioHang.Refresh(); // Có thể bỏ qua nếu bạn thấy nó tự cập nhật
+            UpdateTongTienLabel(); // Cap nhat lai tong tien 
         }
 
         private void RefreshCartDisplay()
         {
-            // Nếu bạn dùng DataTable làm DataSource, việc thay đổi DataTable sẽ tự động cập nhật DGV.
-            // Tuy nhiên, đôi khi Refresh() hoặc Invalidate() có thể giúp cập nhật ngay lập tức nếu có vấn đề về hiển thị.
-            dgvGioHang.Refresh();
+            dgvGioHang.Refresh(); 
+            UpdateTongTienLabel(); 
         }
 
+        // Xoa gia hang
         private void btnXoaGioHang_Click(object sender, EventArgs e)
         {
+            // Kiem tra xem co hang nao dang duoc chon  khong
             if (dgvGioHang.SelectedRows.Count > 0)
             {
-                // Lấy chỉ số dòng được chọn trong DataGridView
-                int rowIndex = dgvGioHang.SelectedRows[0].Index;
+                int rowIndex = dgvGioHang.SelectedRows[0].Index; // Lay chi so cua hang duoc chon
 
-                // Đảm bảo chỉ số hợp lệ và có dữ liệu trong cartTable
+                // Dam bao chi so hang hop le
                 if (rowIndex >= 0 && rowIndex < cartTable.Rows.Count)
                 {
-                    // Lấy DataRow tương ứng từ DataTable
-                    DataRow rowToRemove = cartTable.Rows[rowIndex];
+                    DataRow rowToRemove = cartTable.Rows[rowIndex]; // Lay DataRow tuong ung trong DataTable
                     string tenSP = rowToRemove.Field<string>("TenSP");
 
-                    cartTable.Rows.Remove(rowToRemove); // Xóa dòng khỏi DataTable
+                    cartTable.Rows.Remove(rowToRemove);
 
-                    MessageBox.Show($"Đã xóa '{tenSP}' khỏi giỏ hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // RefreshCartDisplay(); // DataTable tự cập nhật DGV
+                    MessageBox.Show($"Da xoa '{tenSP}' khoi gio hang", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UpdateTongTienLabel(); 
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn một sản phẩm để xóa khỏi giỏ hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui long chon mot san pham de xoa khoi gio hang", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) // This is the "Thanh toán" button
+        // Thanh toan gio hang
+        private void button1_Click(object sender, EventArgs e)
         {
+            // Kiem tra gio hang rong
             if (cartTable.Rows.Count == 0)
             {
-                MessageBox.Show("Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm để thanh toán.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gio hang cua ban dang trong Vui long them san pham de thanh toan", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             string errorMessage = "";
-            bool success = true;
-
-            // For customer-initiated checkout, set MaNhanVien to NULL
-            string maNhanVien = null; // Changed from SessionManager.CurrentLoggedInEmployeeId;
-
-            // Remove validation for maNhanVien as it's now optional for customer checkouts
-            // if (string.IsNullOrEmpty(maNhanVien))
-            // {
-            //     MessageBox.Show("Không có nhân viên nào đang đăng nhập. Vui lòng đăng nhập với vai trò nhân viên để thực hiện thanh toán.", "Lỗi Thanh Toán", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //     return;
-            // }
-
-            // SDTKhachHang will still come from SessionManager if customer is logged in
-
+            // Lay thong tin can thiet cho viec tao hoa don
+            string maNhanVien = null; 
             string sdtKhachHang = SessionManager.CurrentLoggedInCustomerSdt;
+            string maHoaDonBanMoi = "HDB" + DateTime.Now.ToString("yyyyMMddHHmmss"); // Tao ma hoa don moi theo thoi gian
 
-            string maHoaDonBanMoi = "HDB" + DateTime.Now.ToString("yyyyMMddHHmmss");
-            DateTime ngayBan = DateTime.Now;
-
+            // them hoa don, chi tiet hoa don va cap nhat so luong ton kho trong CSDL
             if (blHoaDonBan.ProcessSaleTransaction(maHoaDonBanMoi, maNhanVien, sdtKhachHang, cartTable, ref errorMessage))
             {
-                MessageBox.Show("Thanh toán thành công! Giỏ hàng đã được xóa.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cartTable.Clear();
+                MessageBox.Show("Thanh toan thanh cong Gio hang da duoc xoa", "Thanh cong", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cartTable.Clear(); 
+                UpdateTongTienLabel();
 
                 if (this.ParentForm is FormKhachHang mainForm)
                 {
-                    mainForm.RefreshHangHoaUC();
+                    mainForm.RefreshHangHoaUC(); 
                 }
             }
             else
             {
-                MessageBox.Show("Có lỗi xảy ra trong quá trình thanh toán: " + errorMessage, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Co loi xay ra trong qua trinh thanh toan: " + errorMessage, "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

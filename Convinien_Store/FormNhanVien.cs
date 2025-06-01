@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,9 +18,9 @@ namespace Convenience_Store_Management
 
         private void LoadSubForm(UserControl subForm)
         {
-            pnlNhanVien.Controls.Clear(); // remove existing control(s)
-            subForm.Dock = DockStyle.Fill; // fill the panel
-            pnlNhanVien.Controls.Add(subForm); // add new control
+            pnlNhanVien.Controls.Clear();
+            subForm.Dock = DockStyle.Fill;
+            pnlNhanVien.Controls.Add(subForm);
         }
 
         private void btnSanPham_Click(object sender, EventArgs e)
@@ -46,7 +45,7 @@ namespace Convenience_Store_Management
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirmResult = MessageBox.Show("Ban co muon thoat khong", "Xac nhan thoat", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirmResult == DialogResult.Yes)
             {
                 Application.Exit();
